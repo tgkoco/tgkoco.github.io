@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on TG zl</title>
+    <link>https://tgkoco.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 09 Sep 2019 23:15:36 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>微博批量取关代码</title>
+      <link>https://tgkoco.github.io/2019/sh%E5%BE%AE%E5%8D%9A%E6%89%B9%E9%87%8F%E5%8F%96%E5%85%B3%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 09 Sep 2019 23:15:36 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/sh%E5%BE%AE%E5%8D%9A%E6%89%B9%E9%87%8F%E5%8F%96%E5%85%B3%E4%BB%A3%E7%A0%81/</guid>
+      <description>&lt;p&gt;微博批量删除关注的代码&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[模板]模板样式信息</title>
+      <link>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Fri, 06 Sep 2019 10:47:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</guid>
+      <description>&lt;p&gt;内容摘要信息&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

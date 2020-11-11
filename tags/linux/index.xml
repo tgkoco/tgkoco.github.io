@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on TG zl</title>
+    <link>https://tgkoco.github.io/tags/linux/</link>
+    <description>Recent content in Linux on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 21 Oct 2019 15:21:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Centos制作本地源</title>
+      <link>https://tgkoco.github.io/2019/shcentos%E5%88%B6%E4%BD%9C%E6%9C%AC%E5%9C%B0%E6%BA%90/</link>
+      <pubDate>Mon, 21 Oct 2019 15:21:11 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shcentos%E5%88%B6%E4%BD%9C%E6%9C%AC%E5%9C%B0%E6%BA%90/</guid>
+      <description>&lt;h2 id=&#34;制作本地源&#34;&gt;制作本地源&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Centos常见的坑</title>
+      <link>https://tgkoco.github.io/2019/shcentos%E9%98%B2%E7%81%AB%E5%A2%99/</link>
+      <pubDate>Mon, 21 Oct 2019 15:04:50 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shcentos%E9%98%B2%E7%81%AB%E5%A2%99/</guid>
+      <description>防火墙，hostname，时间同步，下载稳定软件包 防火墙 1.关闭防火墙 systemctl stop firewalld.service 2.禁止开机启动 systemctl disable firewalld.service 关闭 SElinux 1.关闭SElinux setenforce 0 2.禁止开机启动 vi /etc/selinux/config 将 SELINUX 值设置为 disabled 更改Hostname 1.查看当前的hostname hostname 3.更改hostname vi /etc/hostname 修改为自己喜欢的名字 4.重启 reboot 时间同步 1.检查时区 timedatectl status 如不是上海时区， 设置系统时区为上海 命令: timedatectl set-timezone Asia/Shanghai 2.安装 NTP 服务 yum install -y ntpdate ntp 注： ntpd 服务不启动 3.修改/etc/sysconfig/ntpdate让ntpdate每次同步时间之后把时间写入hwclock,相当于命令hwclock -w 将最后一行SYNC_HWCLOCK=no修改为：SYNC_HWCLOCK=yes 4.设置 NTP 同步 ntpdate ntp7.aliyun.com 注：IP 地址按实际配置 5.设置定时任务，每小时同步一次 crontab -e 0 * * * * ntpdate ntp7.</description>
+    </item>
+    
+    <item>
+      <title>Centos网卡问题</title>
+      <link>https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 21 Oct 2019 14:47:03 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h1 id=&#34;centos7网卡&#34;&gt;Centos7网卡&lt;/h1&gt;</description>
+    </item>
+    
+    <item>
+      <title>界面化shell</title>
+      <link>https://tgkoco.github.io/2019/sy%E7%95%8C%E9%9D%A2%E5%8C%96shell/</link>
+      <pubDate>Mon, 21 Oct 2019 14:31:50 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/sy%E7%95%8C%E9%9D%A2%E5%8C%96shell/</guid>
+      <description>&lt;h1 id=&#34;whiptail指令&#34;&gt;whiptail指令&lt;/h1&gt;</description>
+    </item>
+    
+    <item>
+      <title>linux初始化root密码</title>
+      <link>https://tgkoco.github.io/2019/sylinux%E5%88%9D%E5%A7%8B%E5%8C%96root%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Thu, 12 Sep 2019 10:35:43 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/sylinux%E5%88%9D%E5%A7%8B%E5%8C%96root%E5%AF%86%E7%A0%81/</guid>
+      <description>刚安装好的linux系统没有设置root用户密码的，下边介绍如何设置root用户的密码
+ 由于ubtun系统默认是没有激活root用户的，需要我们手工进行操作，在命令行界面下，或者
+在终端中输入如下命令：
+sudo passwd 或者sudo passwd root Password：你当前的密码 Enter new UNIX password：这个是root的密码 Retype new UNIX password：重复root的密码  然后会提示成功的信息。</description>
+    </item>
+    
+    <item>
+      <title>[模板]模板样式信息</title>
+      <link>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Fri, 06 Sep 2019 10:47:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</guid>
+      <description>&lt;p&gt;内容摘要信息&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

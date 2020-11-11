@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on TG zl</title>
+    <link>https://tgkoco.github.io/tags/docker/</link>
+    <description>Recent content in Docker on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 17 Sep 2019 11:36:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dockerfile解析</title>
+      <link>https://tgkoco.github.io/2019/bcdockerfilre%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Tue, 17 Sep 2019 11:36:01 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcdockerfilre%E8%A7%A3%E6%9E%90/</guid>
+      <description> Docker image==&amp;gt;dockerfile(构建image的构建文件,是一系列命令和参数的脚本)
+DockerFile file的组成 1.每个指令必须大写,至少有一个参数
+2.指令按照从大到小的顺序执行
+3.每条指令会创建一个镜像层,并对镜像进行提交.
+file的命令解析  FROM 基于的镜像名称,从&amp;hellip; 祖先镜像baseimage(stratch镜像)元素卷,原镜像 MAINTAINER 作者加邮箱 作者 RUN 容器构建时,需要执行的命令,额外的命令,执行 执行shell命令,添加用户或者用户组,,安装软件,调试信息输出 EXPOSE 当前容器对外暴露的端口号,输出端口 直接跟 端口号 WORKDIR 制定在创建容器后,终端默认的登陆的进来的工作目录,一个落脚点,工作目录 直接跟工作目录 路径 ENV 构建的镜像中的设置环境变量 变量 值,可以配合workdir使用$变量 ADD 拷贝文件并解压到容器中,添加本地文件到容器并解压
+ COPY 拷贝文件到容器中
+ VOLUME 数据卷的集合[,]
+ ENTRYPOINT 指定容器启动时运行的命令,会追加命令
+ ONBUILD 当构建一个被继承的DockerFile时运行命令,父镜像会被子继承后父镜像的onbuild被触发 子景象继承之后,收尾命令 LABEL 标签说明 name=&amp;ldquo;&amp;rdquo; vendor=&amp;ldquo;&amp;rdquo; license=&amp;ldquo;&amp;rdquo; build-data=&amp;ldquo;日期&amp;rdquo; CMD 制定容器启动时执行的shell命令[&amp;ldquo;/bin/bash&amp;rdquo;],但是只有最后一个cmd命令执行 一种shell格式的命令CMD&amp;lt;&amp;gt;,一种exec格式的CMD [&amp;ldquo;&amp;rdquo;,&amp;ldquo;&amp;rdquo;] # 注释信息
+ \ 一行不够写,换行
+ / 信息结束
+ |  运行使用 docker build -f DockerFile -t 别名 url 使用dockerfile创建容器 使用 docker run 镜像名称 使用dockerfile创建的镜像文件</description>
+    </item>
+    
+    <item>
+      <title>Docker常用指令</title>
+      <link>https://tgkoco.github.io/2019/bcdocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Tue, 17 Sep 2019 10:40:41 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcdocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
+      <description>&lt;h1 id=&#34;容器的基本使用命令&#34;&gt;容器的基本使用命令&lt;/h1&gt;</description>
+    </item>
+    
+    <item>
+      <title>[模板]模板样式信息</title>
+      <link>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Fri, 06 Sep 2019 10:47:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</guid>
+      <description>&lt;p&gt;内容摘要信息&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

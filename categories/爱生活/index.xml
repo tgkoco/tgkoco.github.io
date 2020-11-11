@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>爱生活 on TG zl</title>
+    <link>https://tgkoco.github.io/categories/%E7%88%B1%E7%94%9F%E6%B4%BB/</link>
+    <description>Recent content in 爱生活 on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 21 Oct 2019 15:21:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/categories/%E7%88%B1%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Centos制作本地源</title>
+      <link>https://tgkoco.github.io/2019/shcentos%E5%88%B6%E4%BD%9C%E6%9C%AC%E5%9C%B0%E6%BA%90/</link>
+      <pubDate>Mon, 21 Oct 2019 15:21:11 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shcentos%E5%88%B6%E4%BD%9C%E6%9C%AC%E5%9C%B0%E6%BA%90/</guid>
+      <description>&lt;h2 id=&#34;制作本地源&#34;&gt;制作本地源&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Centos常见的坑</title>
+      <link>https://tgkoco.github.io/2019/shcentos%E9%98%B2%E7%81%AB%E5%A2%99/</link>
+      <pubDate>Mon, 21 Oct 2019 15:04:50 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shcentos%E9%98%B2%E7%81%AB%E5%A2%99/</guid>
+      <description>防火墙，hostname，时间同步，下载稳定软件包 防火墙 1.关闭防火墙 systemctl stop firewalld.service 2.禁止开机启动 systemctl disable firewalld.service 关闭 SElinux 1.关闭SElinux setenforce 0 2.禁止开机启动 vi /etc/selinux/config 将 SELINUX 值设置为 disabled 更改Hostname 1.查看当前的hostname hostname 3.更改hostname vi /etc/hostname 修改为自己喜欢的名字 4.重启 reboot 时间同步 1.检查时区 timedatectl status 如不是上海时区， 设置系统时区为上海 命令: timedatectl set-timezone Asia/Shanghai 2.安装 NTP 服务 yum install -y ntpdate ntp 注： ntpd 服务不启动 3.修改/etc/sysconfig/ntpdate让ntpdate每次同步时间之后把时间写入hwclock,相当于命令hwclock -w 将最后一行SYNC_HWCLOCK=no修改为：SYNC_HWCLOCK=yes 4.设置 NTP 同步 ntpdate ntp7.aliyun.com 注：IP 地址按实际配置 5.设置定时任务，每小时同步一次 crontab -e 0 * * * * ntpdate ntp7.</description>
+    </item>
+    
+    <item>
+      <title>Centos网卡问题</title>
+      <link>https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 21 Oct 2019 14:47:03 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h1 id=&#34;centos7网卡&#34;&gt;Centos7网卡&lt;/h1&gt;</description>
+    </item>
+    
+    <item>
+      <title>微博批量取关代码</title>
+      <link>https://tgkoco.github.io/2019/sh%E5%BE%AE%E5%8D%9A%E6%89%B9%E9%87%8F%E5%8F%96%E5%85%B3%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 09 Sep 2019 23:15:36 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/sh%E5%BE%AE%E5%8D%9A%E6%89%B9%E9%87%8F%E5%8F%96%E5%85%B3%E4%BB%A3%E7%A0%81/</guid>
+      <description>&lt;p&gt;微博批量删除关注的代码&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>goland自定义主题</title>
+      <link>https://tgkoco.github.io/2019/shgoland%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Sat, 07 Sep 2019 01:50:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shgoland%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98/</guid>
+      <description>golang自定义主题  下载goland最新版。
+ 代码格式化 File-&amp;gt;Settings-&amp;gt;Tools-&amp;gt;File Watchers-&amp;gt;±&amp;gt;go fmt-&amp;gt;将Name一栏go fmt中间的空格去掉即可应用，在保存的时候就可代码格式化。
+护眼设置 File-&amp;gt;Settings-&amp;gt;Editor-&amp;gt;Color Scheme-&amp;gt;General-&amp;gt;Text-&amp;gt;Default text Foreground:R:0, G:0, B:0 Background:R:199, G:237, B:204
+主题 File-&amp;gt;Settings-&amp;gt;Editor-&amp;gt;Color Scheme-&amp;gt;General-&amp;gt;Scheme 选择喜欢的主题，比如Colorful Darcula
+字体 File-&amp;gt;Settings-&amp;gt;Editor-&amp;gt;Font
+更换主题插件 打开Goland，依次打开File&amp;gt;Settings&amp;gt;Plugins,搜索material这个主题，选择安装。</description>
+    </item>
+    
+    <item>
+      <title>Go语言学习资料与社区索引</title>
+      <link>https://tgkoco.github.io/2019/shunknwon%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
+      <pubDate>Sat, 07 Sep 2019 01:50:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shunknwon%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
+      <description>无闻的学习路线推荐  Go 语言学习资料与社区索引
+ 鉴于之前有人做的 索引资料 已经过期超过 ~2~3 年，所以特开此坑。各位同学可以通过发起 Fork + Pull Request 的方式进行补充和更新。
+最后更新时间：2018 年 05 月 29 日
+交流社区 中文社区  Golang 中国：国内较早的 Go 社区，汇聚各类信息与服务 Study Golang：国内 Go 社区先驱，同样汇聚各类信息与服务 Revel 交流论坛：Revel 框架的中文社区 GoCN Forum：Go 语言爱好者中文交流论坛 QQ 群：  Go Web 交流群：259316004 Golang 中国：211938256 Go 内部实现与标准库：192706294 Go 编程语言：102319854 Martini&amp;amp;Macaron 交流群：371440803 Golang 新手群：369793160   英文社区  Go Forum：Go 语言爱好者英文交流论坛 golang-nuts 邮件列表：Go 语言官方指定邮件列表讨论区 Go+ 社区：Go 语言官方指定 G+ 社区  知识图谱  Go Knowledge Graph：Go 知识图谱  网址导航  官方：  Go 中国站点: Go 语言中国官方站点(无需翻墙) Playground：Go 语言代码在线运行  国内镜像：  Go 指南国内镜像 Go 语言国内下载镜像 Go 官方网站国内镜像  Web 框架：  Macaron：模块化 Web 框架 Beego：重量级 Web 框架 Revel：较早成熟的重量级 Web 框架 Martini: 一个强大为了编写模块化 Web 应用而生的 Go 语言框架 Echo: 功能模块齐全, 上手容易, 文档示例齐全 Gin：轻量级 HTTP Web 框架  ORM 以及数据库驱动：  xorm：支持 MySQL、PostgreSQL、SQLite3 以及 MsSQL mgo：MongoDB 官方推荐驱动 gorm: 全功能 ORM (无限接近) 支持 MySQL、PostgreSQL、SQLite3 以及 MsSQL  辅助站点：  Go Walker：Go 语言在线 API 文档 gobuild.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://tgkoco.github.io/2019/golangfilepath/" />
+  <link rel="next" href="https://tgkoco.github.io/2019/golanghttp/" />
+  <link rel="canonical" href="https://tgkoco.github.io/2019/golangfmt/" />
+  <link rel='shortcut icon' type='image/x-icon' href='//tgkoco.github.io/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="//tgkoco.github.io/favicon.ico">
+  <link rel="manifest" href="https://tgkoco.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://tgkoco.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Go包fmt | TG zl
+       
+  </title>
+  <meta name="title" content="Go包fmt | TG zl">
+    
+  
+  <link rel="stylesheet" href="https://tgkoco.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://tgkoco.github.io/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go包fmt"/>
+<meta name="twitter:description" content="fmt的工具包 通用替换符： %v 值的默认格式表示 %&#43;v 类似%v，但输出结构体时会添加字段名 %#v 值的Go语法表示 %T 值的类型的Go语法表示 %% 百分号  布尔值： %t 单词true或false 整数： %b 表示为二进制 %c 该值对应的unicode码值 %d 表示为十进制 %o 表示为八进制 %q 该值对应的单引号括起来的go语法字符字面值，必要时会采用安全的转义表示 %x 表示为十六进制，使用a-f %X 表示为十六进制，使用A-F %U 表示为Unicode格式：U&#43;1234，等价于&#34;U&#43;%04X&#34;  浮点数与复数的两个组分： %b 无小数部分、二进制指数的科学计数法，如-123456p-78；参见strconv.FormatFloat %e 科学计数法，如-1234.456e&#43;78 %E 科学计数法，如-1234.456E&#43;78 %f 有小数部分但无指数部分，如123.456 %F 等价于%f %g 根据实际情况采用%e或%f格式（以获得更简洁、准确的输出） %G 根据实际情况采用%E或%F格式（以获得更简洁、准确的输出）  字符串和[]byte： %s 直接输出字符串或者[]byte %q 该值对应的双引号括起来的go语法字符串字面值，必要时会采用安全的转义表示 %x 每个字节用两字符十六进制数表示（使用a-f） %X 每个字节用两字符十六进制数表示（使用A-F）  指针： %p 表示为十六进制，并加上前导的0x
+没有%u。整数如果是无符号类型自然输出也是无符号的。类似的，也没有必要指定操作数的尺寸（int8，int64）。
+宽度通过一个紧跟在百分号后面的十进制数指定，如果未指定宽度，则表示值时除必需之外不作填充。精度通过（可选的）宽度后跟点号后跟的十进制数指定。如果未指定精度，会使用默认精度；如果点号后没有跟数字，表示精度为0。举例如下：
+%f: 默认宽度，默认精度 %9f 宽度9，默认精度 %."/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Go包fmt",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/tgkoco.github.io\/2019\/golangfmt\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/tgkoco.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "学习, Golang",
+  "wordcount":  77 ,
+  "url": "https:\/\/tgkoco.github.io\/2019\/golangfmt\/",
+  "datePublished": "2019-09-06T17:12:21\x2b08:00",
+  "dateModified": "2019-09-06T17:12:21\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "糖果🍬",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/tgkoco.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "TG🍬ZL"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://tgkoco.github.io/">TG zl</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://tgkoco.github.io/">TG zl</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Go包fmt</h1>
+        <div class="post-meta">
+            Written by <a href="https://tgkoco.github.io/" rel="author">TG🍬ZL</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-09-06 >6 September 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tgkoco.github.io/categories/%E7%88%B1%E7%BC%96%E7%A8%8B/"> 爱编程 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                1 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="fmt的工具包">fmt的工具包</h2>
+
+<h3 id="通用替换符">通用替换符：</h3>
+<div class="highlight"><pre class="chroma">%v  值的默认格式表示  
+%+v 类似%v，但输出结构体时会添加字段名  
+%#v 值的Go语法表示  
+%T  值的类型的Go语法表示  
+%%  百分号 </pre></div>
+<h3 id="布尔值">布尔值：</h3>
+<div class="highlight"><pre class="chroma">%t  单词true或false</pre></div>
+<h3 id="整数">整数：</h3>
+<div class="highlight"><pre class="chroma">%b  表示为二进制  
+%c  该值对应的unicode码值  
+%d  表示为十进制  
+%o  表示为八进制  
+%q  该值对应的单引号括起来的go语法字符字面值，必要时会采用安全的转义表示  
+%x  表示为十六进制，使用a-f  
+%X  表示为十六进制，使用A-F  
+%U  表示为Unicode格式：U+1234，等价于&#34;U+%04X&#34;  </pre></div>
+<h3 id="浮点数与复数的两个组分">浮点数与复数的两个组分：</h3>
+<div class="highlight"><pre class="chroma">%b  无小数部分、二进制指数的科学计数法，如-123456p-78；参见strconv.FormatFloat  
+%e  科学计数法，如-1234.456e+78  
+%E  科学计数法，如-1234.456E+78  
+%f  有小数部分但无指数部分，如123.456  
+%F  等价于%f  
+%g  根据实际情况采用%e或%f格式（以获得更简洁、准确的输出）  
+%G  根据实际情况采用%E或%F格式（以获得更简洁、准确的输出）  </pre></div>
+<h3 id="字符串和-byte">字符串和[]byte：</h3>
+<div class="highlight"><pre class="chroma">%s  直接输出字符串或者[]byte  
+%q  该值对应的双引号括起来的go语法字符串字面值，必要时会采用安全的转义表示  
+%x  每个字节用两字符十六进制数表示（使用a-f）  
+%X  每个字节用两字符十六进制数表示（使用A-F）  </pre></div>
+<h3 id="指针">指针：</h3>
+
+<p>%p  表示为十六进制，并加上前导的0x<br />
+没有%u。整数如果是无符号类型自然输出也是无符号的。类似的，也没有必要指定操作数的尺寸（int8，int64）。</p>
+
+<p>宽度通过一个紧跟在百分号后面的十进制数指定，如果未指定宽度，则表示值时除必需之外不作填充。精度通过（可选的）宽度后跟点号后跟的十进制数指定。如果未指定精度，会使用默认精度；如果点号后没有跟数字，表示精度为0。举例如下：</p>
+<div class="highlight"><pre class="chroma">%f:    默认宽度，默认精度  
+%9f    宽度9，默认精度  
+%.2f   默认宽度，精度2  
+%9.2f  宽度9，精度2  
+%9.f   宽度9，精度0</pre></div>
+<h2 id="fmt包解释">fmt包解释</h2>
+
+<ul>
+<li><p>fmt.Fprintln(writer, string)，在指定的 io.Writer中展示信息interface{}信息。返回的信息的长度</p></li>
+
+<li><p>fmt.(&amp;start) 回车输入信息并把信息加载到start中，传入的值为一个地址</p></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>TG🍬ZL </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>77</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftgkoco.github.io%2f2019%2fgolangfmt%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fgolangfmt%2f&amp;title=Go%e5%8c%85fmt" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+        <a href="//service.weibo.com/share/share.php?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fgolangfmt%2f&amp;appkey=&amp;title=Go%e5%8c%85fmt" target="_blank" title="Share on Douban ">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%AD%A6%E4%B9%A0/">
+                    #学习</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/golang/">
+                    #Golang</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://tgkoco.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tgkoco.github.io/2019/golangfilepath/" class="prev" rel="prev" title="Go包filepath"><i class="iconfont icon-dajiantou"></i>&nbsp;Go包filepath</a>
+         
+        
+        <a href="https://tgkoco.github.io/2019/golanghttp/" class="next" rel="next" title="Go包http">Go包http&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tgkoco';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+ 
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      
+<style>
+    body {
+        cursor: url(https://tgkoco.github.io/cursor.ico), default;
+    }
+</style>
+
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tgkoco.github.io/">TG🍬ZL</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://tgkoco.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

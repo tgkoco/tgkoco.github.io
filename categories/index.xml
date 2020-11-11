@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on TG zl</title>
+    <link>https://tgkoco.github.io/categories/</link>
+    <description>Recent content in Categories on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 21 Oct 2019 15:21:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>爱生活</title>
+      <link>https://tgkoco.github.io/categories/%E7%88%B1%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Mon, 21 Oct 2019 15:21:11 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/categories/%E7%88%B1%E7%94%9F%E6%B4%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>诗和远方</title>
+      <link>https://tgkoco.github.io/categories/%E8%AF%97%E5%92%8C%E8%BF%9C%E6%96%B9/</link>
+      <pubDate>Mon, 21 Oct 2019 14:31:50 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/categories/%E8%AF%97%E5%92%8C%E8%BF%9C%E6%96%B9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>爱编程</title>
+      <link>https://tgkoco.github.io/categories/%E7%88%B1%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Sat, 28 Sep 2019 17:50:54 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/categories/%E7%88%B1%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>有内涵</title>
+      <link>https://tgkoco.github.io/categories/%E6%9C%89%E5%86%85%E6%B6%B5/</link>
+      <pubDate>Thu, 19 Sep 2019 18:44:03 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/categories/%E6%9C%89%E5%86%85%E6%B6%B5/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

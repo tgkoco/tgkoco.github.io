@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://tgkoco.github.io/2019/bcdocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" />
+  <link rel="next" href="https://tgkoco.github.io/2019/nhrestfulapi/" />
+  <link rel="canonical" href="https://tgkoco.github.io/2019/bcdockerfilre%E8%A7%A3%E6%9E%90/" />
+  <link rel='shortcut icon' type='image/x-icon' href='//tgkoco.github.io/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="//tgkoco.github.io/favicon.ico">
+  <link rel="manifest" href="https://tgkoco.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://tgkoco.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Dockerfile解析 | TG zl
+       
+  </title>
+  <meta name="title" content="Dockerfile解析 | TG zl">
+    
+  
+  <link rel="stylesheet" href="https://tgkoco.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://tgkoco.github.io/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dockerfile解析"/>
+<meta name="twitter:description" content=" Docker image==&gt;dockerfile(构建image的构建文件,是一系列命令和参数的脚本)
+DockerFile file的组成 1.每个指令必须大写,至少有一个参数
+2.指令按照从大到小的顺序执行
+3.每条指令会创建一个镜像层,并对镜像进行提交.
+file的命令解析  FROM 基于的镜像名称,从&hellip; 祖先镜像baseimage(stratch镜像)元素卷,原镜像 MAINTAINER 作者加邮箱 作者 RUN 容器构建时,需要执行的命令,额外的命令,执行 执行shell命令,添加用户或者用户组,,安装软件,调试信息输出 EXPOSE 当前容器对外暴露的端口号,输出端口 直接跟 端口号 WORKDIR 制定在创建容器后,终端默认的登陆的进来的工作目录,一个落脚点,工作目录 直接跟工作目录 路径 ENV 构建的镜像中的设置环境变量 变量 值,可以配合workdir使用$变量 ADD 拷贝文件并解压到容器中,添加本地文件到容器并解压
+ COPY 拷贝文件到容器中
+ VOLUME 数据卷的集合[,]
+ ENTRYPOINT 指定容器启动时运行的命令,会追加命令
+ ONBUILD 当构建一个被继承的DockerFile时运行命令,父镜像会被子继承后父镜像的onbuild被触发 子景象继承之后,收尾命令 LABEL 标签说明 name=&ldquo;&rdquo; vendor=&ldquo;&rdquo; license=&ldquo;&rdquo; build-data=&ldquo;日期&rdquo; CMD 制定容器启动时执行的shell命令[&ldquo;/bin/bash&rdquo;],但是只有最后一个cmd命令执行 一种shell格式的命令CMD&lt;&gt;,一种exec格式的CMD [&ldquo;&rdquo;,&ldquo;&rdquo;] # 注释信息
+ \ 一行不够写,换行
+ / 信息结束
+ |  运行使用 docker build -f DockerFile -t 别名 url 使用dockerfile创建容器 使用 docker run 镜像名称 使用dockerfile创建的镜像文件"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dockerfile解析",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/tgkoco.github.io\/2019\/bcdockerfilre%E8%A7%A3%E6%9E%90\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/tgkoco.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "定义, 博文, Docker",
+  "wordcount":  71 ,
+  "url": "https:\/\/tgkoco.github.io\/2019\/bcdockerfilre%E8%A7%A3%E6%9E%90\/",
+  "datePublished": "2019-09-17T11:36:01\x2b08:00",
+  "dateModified": "2019-09-17T11:36:01\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "糖果🍬",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/tgkoco.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "TG🍬ZL"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://tgkoco.github.io/">TG zl</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://tgkoco.github.io/">TG zl</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Dockerfile解析</h1>
+        <div class="post-meta">
+            Written by <a href="https://tgkoco.github.io/" rel="author">TG🍬ZL</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-09-17 >17 September 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tgkoco.github.io/categories/%E7%88%B1%E7%BC%96%E7%A8%8B/"> 爱编程 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                1 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>Docker image==&gt;dockerfile(构建image的构建文件,是一系列命令和参数的脚本)</p>
+
+<h3 id="dockerfile-file的组成">DockerFile  file的组成</h3>
+
+<p>1.每个指令必须大写,至少有一个参数<br />
+2.指令按照从大到小的顺序执行<br />
+3.每条指令会创建一个镜像层,并对镜像进行提交.</p>
+
+<h2 id="file的命令解析">file的命令解析</h2>
+
+<ul>
+<li>FROM  基于的镜像名称,从&hellip;    祖先镜像baseimage(stratch镜像)元素卷,原镜像</li>
+<li>MAINTAINER  作者加邮箱   作者<email></li>
+<li>RUN 容器构建时,需要执行的命令,额外的命令,执行  执行shell命令,添加用户或者用户组,,安装软件,调试信息输出</li>
+<li>EXPOSE  当前容器对外暴露的端口号,输出端口   直接跟 端口号</li>
+<li>WORKDIR 制定在创建容器后,终端默认的登陆的进来的工作目录,一个落脚点,工作目录 直接跟工作目录 路径</li>
+<li>ENV 构建的镜像中的设置环境变量   变量 值,可以配合workdir使用$变量</li>
+<li>ADD 拷贝文件并解压到容器中,添加本地文件到容器并解压<br /></li>
+<li>COPY    拷贝文件到容器中<br /></li>
+<li>VOLUME  数据卷的集合[,]<br /></li>
+<li>ENTRYPOINT  指定容器启动时运行的命令,会追加命令<br /></li>
+<li>ONBUILD 当构建一个被继承的DockerFile时运行命令,父镜像会被子继承后父镜像的onbuild被触发    子景象继承之后,收尾命令</li>
+<li>LABEL   标签说明    name=&ldquo;&rdquo; vendor=&ldquo;&rdquo; license=&ldquo;&rdquo; build-data=&ldquo;日期&rdquo;</li>
+<li>CMD 制定容器启动时执行的shell命令[&ldquo;/bin/bash&rdquo;],但是只有最后一个cmd命令执行  一种shell格式的命令CMD&lt;&gt;,一种exec格式的CMD [&ldquo;&rdquo;,&ldquo;&rdquo;]</li>
+<li><strong>#</strong>   注释信息<br /></li>
+<li>\   一行不够写,换行<br /></li>
+<li>/   信息结束<br /></li>
+<li>|</li>
+</ul>
+
+<h3 id="运行使用">运行使用</h3>
+<div class="highlight"><pre class="chroma">docker build -f DockerFile -t 别名 url    使用dockerfile创建容器</pre></div>
+<h3 id="使用">使用</h3>
+<div class="highlight"><pre class="chroma">docker run 镜像名称 使用dockerfile创建的镜像文件</pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>TG🍬ZL </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>71</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftgkoco.github.io%2f2019%2fbcdockerfilre%25E8%25A7%25A3%25E6%259E%2590%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fbcdockerfilre%25E8%25A7%25A3%25E6%259E%2590%2f&amp;title=Dockerfile%e8%a7%a3%e6%9e%90" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+        <a href="//service.weibo.com/share/share.php?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fbcdockerfilre%25E8%25A7%25A3%25E6%259E%2590%2f&amp;appkey=&amp;title=Dockerfile%e8%a7%a3%e6%9e%90" target="_blank" title="Share on Douban ">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%AE%9A%E4%B9%89/">
+                    #定义</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%8D%9A%E6%96%87/">
+                    #博文</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/docker/">
+                    #Docker</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://tgkoco.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tgkoco.github.io/2019/bcdocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="prev" rel="prev" title="Docker常用指令"><i class="iconfont icon-dajiantou"></i>&nbsp;Docker常用指令</a>
+         
+        
+        <a href="https://tgkoco.github.io/2019/nhrestfulapi/" class="next" rel="next" title="RESTfulAPI">RESTfulAPI&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tgkoco';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+ 
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      
+<style>
+    body {
+        cursor: url(https://tgkoco.github.io/cursor.ico), default;
+    }
+</style>
+
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tgkoco.github.io/">TG🍬ZL</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://tgkoco.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

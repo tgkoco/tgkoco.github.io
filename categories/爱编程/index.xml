@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>爱编程 on TG zl</title>
+    <link>https://tgkoco.github.io/categories/%E7%88%B1%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in 爱编程 on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Sep 2019 17:50:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/categories/%E7%88%B1%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>知乎的golayout文件布局</title>
+      <link>https://tgkoco.github.io/2019/sy%E7%9F%A5%E4%B9%8E%E7%9A%84golayout%E6%96%87%E4%BB%B6%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Sat, 28 Sep 2019 17:50:54 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/sy%E7%9F%A5%E4%B9%8E%E7%9A%84golayout%E6%96%87%E4%BB%B6%E5%B8%83%E5%B1%80/</guid>
+      <description> 知乎的go项目模板 借鉴  知乎社区
+project-layout
+ </description>
+    </item>
+    
+    <item>
+      <title>Go语言内建函数</title>
+      <link>https://tgkoco.github.io/2019/bcgo%E8%AF%AD%E8%A8%80%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Thu, 19 Sep 2019 23:07:31 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgo%E8%AF%AD%E8%A8%80%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/</guid>
+      <description>&lt;h3 id=&#34;golang的内建函数&#34;&gt;Golang的内建函数&lt;/h3&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dockerfile解析</title>
+      <link>https://tgkoco.github.io/2019/bcdockerfilre%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Tue, 17 Sep 2019 11:36:01 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcdockerfilre%E8%A7%A3%E6%9E%90/</guid>
+      <description> Docker image==&amp;gt;dockerfile(构建image的构建文件,是一系列命令和参数的脚本)
+DockerFile file的组成 1.每个指令必须大写,至少有一个参数
+2.指令按照从大到小的顺序执行
+3.每条指令会创建一个镜像层,并对镜像进行提交.
+file的命令解析  FROM 基于的镜像名称,从&amp;hellip; 祖先镜像baseimage(stratch镜像)元素卷,原镜像 MAINTAINER 作者加邮箱 作者 RUN 容器构建时,需要执行的命令,额外的命令,执行 执行shell命令,添加用户或者用户组,,安装软件,调试信息输出 EXPOSE 当前容器对外暴露的端口号,输出端口 直接跟 端口号 WORKDIR 制定在创建容器后,终端默认的登陆的进来的工作目录,一个落脚点,工作目录 直接跟工作目录 路径 ENV 构建的镜像中的设置环境变量 变量 值,可以配合workdir使用$变量 ADD 拷贝文件并解压到容器中,添加本地文件到容器并解压
+ COPY 拷贝文件到容器中
+ VOLUME 数据卷的集合[,]
+ ENTRYPOINT 指定容器启动时运行的命令,会追加命令
+ ONBUILD 当构建一个被继承的DockerFile时运行命令,父镜像会被子继承后父镜像的onbuild被触发 子景象继承之后,收尾命令 LABEL 标签说明 name=&amp;ldquo;&amp;rdquo; vendor=&amp;ldquo;&amp;rdquo; license=&amp;ldquo;&amp;rdquo; build-data=&amp;ldquo;日期&amp;rdquo; CMD 制定容器启动时执行的shell命令[&amp;ldquo;/bin/bash&amp;rdquo;],但是只有最后一个cmd命令执行 一种shell格式的命令CMD&amp;lt;&amp;gt;,一种exec格式的CMD [&amp;ldquo;&amp;rdquo;,&amp;ldquo;&amp;rdquo;] # 注释信息
+ \ 一行不够写,换行
+ / 信息结束
+ |  运行使用 docker build -f DockerFile -t 别名 url 使用dockerfile创建容器 使用 docker run 镜像名称 使用dockerfile创建的镜像文件</description>
+    </item>
+    
+    <item>
+      <title>Docker常用指令</title>
+      <link>https://tgkoco.github.io/2019/bcdocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Tue, 17 Sep 2019 10:40:41 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcdocker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
+      <description>&lt;h1 id=&#34;容器的基本使用命令&#34;&gt;容器的基本使用命令&lt;/h1&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go包time</title>
+      <link>https://tgkoco.github.io/2019/bcgotime/</link>
+      <pubDate>Sat, 07 Sep 2019 07:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgotime/</guid>
+      <description> time 时间操作  time.Sleep(d Duration),程序睡眠一段时间，后者是一个type Duration int64类型的数字，一般使用的（10 * time.Second）表示十秒。
+ time.Now() Time，获取local当前的时间，Time是一个结构体，包含很多的方法。获取秒数，转换地区。。。
+ time.Add(d Duration),时间增加一段时间,
+ func (t Time) UTC() Time UTC返回采用UTC和零时区，但指向同一时间点的Time。
+ func (t Time) Unix() int64 Unix将t表示为Unix时间，即从时间点January 1, 1970 UTC到时间点t所经过的时间（单位秒）。
+  </description>
+    </item>
+    
+    <item>
+      <title>Go包strins</title>
+      <link>https://tgkoco.github.io/2019/bcgostrings/</link>
+      <pubDate>Sat, 07 Sep 2019 06:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgostrings/</guid>
+      <description> strins工具包  trings.IndexByte(name, &amp;lsquo;.&amp;rsquo;) == 0 //以.开头的文件,返回的是一个‘.’在name中的位置信息，从0开始  </description>
+    </item>
+    
+    <item>
+      <title>Go包strconv</title>
+      <link>https://tgkoco.github.io/2019/bcgostrconv/</link>
+      <pubDate>Sat, 07 Sep 2019 05:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgostrconv/</guid>
+      <description> strconv string的类型转换包  strconv.Itoa(i int) string,将int类型转为string类型，底层使用的是FormatInt(int64(i), 10)
+ strconv.FormatInt(i int64, base int) string,将int64 变为string，后者表示的是for 2 &amp;lt;= base &amp;lt;= 36.一般使用的是10，表示10进制
+   </description>
+    </item>
+    
+    <item>
+      <title>Go包os</title>
+      <link>https://tgkoco.github.io/2019/bcgoos/</link>
+      <pubDate>Sat, 07 Sep 2019 03:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgoos/</guid>
+      <description> os的工具包  os.Exit(1)：退出程序
+ os.Args 获取执行命令的参数和该命令所在的路径信信息E:\GoWorkstation\src\exercisecode\goCodeText\初始化\切片.exe hh dd]
+ os.Stat(dir)：dir是文件的路径，可以是文件夹或者文件，返回的是一个os.FileInfo和一个错误信息，前者就是文件的具体信息。
+ os.Open(dir)，返回的是一个os.*File的地址，表示的是一个文件的结构体。可以执行其绑定的方法。
+ os.Rename(oldpath, newpath string) error,更改文件的名称，返回的是一个error
+func (f *File) Readdirnames(n int) (names []string, err error) *file对象的方法，返回的是目录中的文件的名称信息。  </description>
+    </item>
+    
+    <item>
+      <title>Go包log</title>
+      <link>https://tgkoco.github.io/2019/bcgolog/</link>
+      <pubDate>Sat, 07 Sep 2019 02:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgolog/</guid>
+      <description>log工具包 log.Fatal(v),返回一个时间和日期的日志信息，并且执行os.Exit(1)终止程序。
+log.FatalF(&amp;ldquo;%s&amp;rdquo;,string),支持使用占位符。</description>
+    </item>
+    
+    <item>
+      <title>Go语言的http服务的热启动</title>
+      <link>https://tgkoco.github.io/2019/bcgogo%E8%AF%AD%E8%A8%80%E7%9A%84http%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%83%AD%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Sat, 07 Sep 2019 01:48:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgogo%E8%AF%AD%E8%A8%80%E7%9A%84http%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%83%AD%E5%90%AF%E5%8A%A8/</guid>
+      <description>Go语言的http服务的热启动 摘抄的代码，以便于学习。
+package main import ( &amp;#34;context&amp;#34; &amp;#34;errors&amp;#34; &amp;#34;flag&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;os/exec&amp;#34; &amp;#34;os/signal&amp;#34; &amp;#34;syscall&amp;#34; &amp;#34;time&amp;#34; ) var ( server *http.Server listener net.Listener graceful = flag.Bool(&amp;#34;graceful&amp;#34;, false, &amp;#34;listen on fd open 3 (internal use only)&amp;#34;) ) func sleep(w http.ResponseWriter, r *http.Request) { duration, err := time.ParseDuration(r.FormValue(&amp;#34;duration&amp;#34;)) if err != nil { http.Error(w, err.Error(), 400) return } time.Sleep(duration) w.Write([]byte(&amp;#34;Hello World&amp;#34;)) } func main() { flag.Parse() http.HandleFunc(&amp;#34;/sleep&amp;#34;, sleep) server = &amp;amp;http.</description>
+    </item>
+    
+    <item>
+      <title>Go切片的地址问题</title>
+      <link>https://tgkoco.github.io/2019/bcgo%E5%88%87%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/</link>
+      <pubDate>Sat, 07 Sep 2019 01:47:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgo%E5%88%87%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/</guid>
+      <description>切片的地址 a[:] 表示的是一个地址
+a[] 切片类型的也是一个地址
+for range 一个map,得到的k,v都表示一个地址不变的地址
+地址并没有变化,原因是key[:]表示的是同一个变量key的地址
+第二次添加的时候,添加的是同一个地址.
+解决方式,通过一个中间变量来接受key的值,来达到每次循环都是一个不定的地址.(防止同一个地址被修改)</description>
+    </item>
+    
+    <item>
+      <title>Go基本变量类型</title>
+      <link>https://tgkoco.github.io/2019/bcgo%E5%9F%BA%E7%A1%80%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Sat, 07 Sep 2019 01:46:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgo%E5%9F%BA%E7%A1%80%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</guid>
+      <description>&lt;h2 id=&#34;go语言的基本数据类型&#34;&gt;Go语言的基本数据类型&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go包ioutil</title>
+      <link>https://tgkoco.github.io/2019/bcgoioutil/</link>
+      <pubDate>Sat, 07 Sep 2019 01:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgoioutil/</guid>
+      <description> ioutil数据的操作包  ioutil.ReadDir(dirname string) ([]os.FileInfo, error) 根据传入的path，返回的是一个[]os.FileInfo的切片，ReadDir reads the directory named by dirname and returns  </description>
+    </item>
+    
+    <item>
+      <title>Mod的使用</title>
+      <link>https://tgkoco.github.io/2019/bcgomod%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 06 Sep 2019 18:11:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgomod%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;gomod环境的配置和简单使用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go包http</title>
+      <link>https://tgkoco.github.io/2019/bcgohttp/</link>
+      <pubDate>Fri, 06 Sep 2019 17:13:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgohttp/</guid>
+      <description> http的工具包 接口  http.ResponseWriter接口  结构体  *http.Request 结构体  函数  http.HandleFunc(&amp;ldquo;/&amp;rdquo;, handfunc)，添加一个url对应的handle，其中hand是一个handler func(ResponseWriter, *Request))的func
+ http.Handle(&amp;ldquo;/&amp;rdquo;, hander),hander是一个接口，要求实现这个方法ServeHTTP(ResponseWriter, *Request)
+ http.ListenAndServe(&amp;rdquo;:8080&amp;rdquo;, nil)，启动一个http的服务，返回一个错误信息，端口，和Handler接口（作用未知）。
+  </description>
+    </item>
+    
+    <item>
+      <title>Go包fmt</title>
+      <link>https://tgkoco.github.io/2019/bcgofmt/</link>
+      <pubDate>Fri, 06 Sep 2019 17:12:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgofmt/</guid>
+      <description>fmt的工具包 通用替换符： %v 值的默认格式表示 %+v 类似%v，但输出结构体时会添加字段名 %#v 值的Go语法表示 %T 值的类型的Go语法表示 %% 百分号  布尔值： %t 单词true或false 整数： %b 表示为二进制 %c 该值对应的unicode码值 %d 表示为十进制 %o 表示为八进制 %q 该值对应的单引号括起来的go语法字符字面值，必要时会采用安全的转义表示 %x 表示为十六进制，使用a-f %X 表示为十六进制，使用A-F %U 表示为Unicode格式：U+1234，等价于&amp;#34;U+%04X&amp;#34;  浮点数与复数的两个组分： %b 无小数部分、二进制指数的科学计数法，如-123456p-78；参见strconv.FormatFloat %e 科学计数法，如-1234.456e+78 %E 科学计数法，如-1234.456E+78 %f 有小数部分但无指数部分，如123.456 %F 等价于%f %g 根据实际情况采用%e或%f格式（以获得更简洁、准确的输出） %G 根据实际情况采用%E或%F格式（以获得更简洁、准确的输出）  字符串和[]byte： %s 直接输出字符串或者[]byte %q 该值对应的双引号括起来的go语法字符串字面值，必要时会采用安全的转义表示 %x 每个字节用两字符十六进制数表示（使用a-f） %X 每个字节用两字符十六进制数表示（使用A-F）  指针： %p 表示为十六进制，并加上前导的0x
+没有%u。整数如果是无符号类型自然输出也是无符号的。类似的，也没有必要指定操作数的尺寸（int8，int64）。
+宽度通过一个紧跟在百分号后面的十进制数指定，如果未指定宽度，则表示值时除必需之外不作填充。精度通过（可选的）宽度后跟点号后跟的十进制数指定。如果未指定精度，会使用默认精度；如果点号后没有跟数字，表示精度为0。举例如下：
+%f: 默认宽度，默认精度 %9f 宽度9，默认精度 %.</description>
+    </item>
+    
+    <item>
+      <title>Go包filepath</title>
+      <link>https://tgkoco.github.io/2019/bcgofilepath/</link>
+      <pubDate>Fri, 06 Sep 2019 17:11:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/bcgofilepath/</guid>
+      <description> filepath的工具包  filepath.Join(dir, name&amp;hellip;) 链接多个路径信息string，返回的也是一个路径，可以传入多个参数。
+ filepath.Rel(path, name)，返回name相对与path的相对路径
+ filepath.Base(os.Arg[0])，返回的路径信息最后的文件的名称
+  </description>
+    </item>
+    
+  </channel>
+</rss>

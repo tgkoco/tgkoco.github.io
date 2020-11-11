@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://tgkoco.github.io/2019/gitgitemoji%E7%9A%84%E5%9B%BE%E6%A0%87/" />
+  <link rel="next" href="https://tgkoco.github.io/2019/%E5%BE%AE%E5%8D%9A%E6%89%B9%E9%87%8F%E5%8F%96%E5%85%B3%E4%BB%A3%E7%A0%81/" />
+  <link rel="canonical" href="https://tgkoco.github.io/2019/gitgit_ignore%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+  <link rel='shortcut icon' type='image/x-icon' href='//tgkoco.github.io/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="//tgkoco.github.io/favicon.ico">
+  <link rel="manifest" href="https://tgkoco.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://tgkoco.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Gitignore的使用 | TG zl
+       
+  </title>
+  <meta name="title" content="Gitignore的使用 | TG zl">
+    
+  
+  <link rel="stylesheet" href="https://tgkoco.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://tgkoco.github.io/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gitignore的使用"/>
+<meta name="twitter:description" content=".gitignore的作用和基本用法"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Gitignore的使用",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/tgkoco.github.io\/2019\/gitgit_ignore%E7%9A%84%E4%BD%BF%E7%94%A8\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/tgkoco.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "学习, Git",
+  "wordcount":  98 ,
+  "url": "https:\/\/tgkoco.github.io\/2019\/gitgit_ignore%E7%9A%84%E4%BD%BF%E7%94%A8\/",
+  "datePublished": "2019-09-07T20:03:40\x2b08:00",
+  "dateModified": "2019-09-07T20:03:40\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "糖果🍬",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/tgkoco.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "TG🍬ZL"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://tgkoco.github.io/">TG zl</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://tgkoco.github.io/">TG zl</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Gitignore的使用</h1>
+        <div class="post-meta">
+            Written by <a href="https://tgkoco.github.io/" rel="author">TG🍬ZL</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-09-07 >7 September 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tgkoco.github.io/categories/%E7%88%B1%E7%BC%96%E7%A8%8B/"> 爱编程 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                1 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>.gitignore的作用和基本用法</p>
+
+<h3 id="创建">创建</h3>
+
+<p>使用gitbash打开文件夹,运行</p>
+<div class="highlight"><pre class="chroma">touch .gitignore</pre></div>
+<h3 id="基本用法">基本用法:</h3>
+<div class="highlight"><pre class="chroma">#               表示此为注释,将被Git忽略
+*.a             表示忽略所有 .a 结尾的文件
+!lib.a          表示但lib.a除外
+/TODO           表示仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+build/          表示忽略 build/目录下的所有文件，过滤整个build文件夹；
+doc/*.txt       表示会忽略doc/notes.txt但不包括 doc/server/arch.txt
+ 
+bin/:           表示忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件  
+/bin:           表示忽略根目录下的bin文件
+/*.c:           表示忽略cat.c，不忽略 build/cat.c
+debug/*.obj:    表示忽略debug/io.obj，不忽略 debug/common/io.obj和tools/debug/io.obj
+**/foo:         表示忽略/foo,a/foo,a/b/foo等
+a/**/b:         表示忽略a/b, a/x/b,a/x/y/b等
+!/bin/run.sh    表示不忽略bin目录下的run.sh文件
+*.log:          表示忽略所有 .log 文件
+config.php:     表示忽略当前路径的 config.php 文件
+ 
+/mtk/           表示过滤整个文件夹
+*.zip           表示过滤所有.zip文件
+/mtk/do.c       表示过滤某个具体文件
+ 
+被过滤掉的文件就不会出现在git仓库中（gitlab或github）了，当然本地库中还有，只是push的时候不会上传 .
+ 
+需要注意的是，gitignore还可以指定要将哪些文件添加到版本管理中，如下：
+!*.zip
+!/mtk/one.txt
+ 
+唯一的区别就是规则开头多了一个感叹号，Git会将满足这类规则的文件添加到版本管理中。为什么要有两种规则呢？
+想象一个场景：假如我们只需要管理/mtk/目录中的one.txt文件，这个目录中的其他文件都不需要管理，那么.gitignore规则应写为：：
+/mtk/*
+!/mtk/one.txt
+ 
+假设我们只有过滤规则，而没有添加规则，那么我们就需要把/mtk/目录下除了one.txt以外的所有文件都写出来！
+注意上面的/mtk/*不能写为/mtk/，否则父目录被前面的规则排除掉了，one.txt文件虽然加了!过滤规则，也不会生效！
+ 
+----------------------------------------------------------------------------------
+还有一些规则如下：
+fd1/*
+说明：忽略目录 fd1 下的全部内容；注意，不管是根目录下的 /fd1/ 目录，还是某个子目录 /child/fd1/ 目录，都会被忽略；
+ 
+/fd1/*
+说明：忽略根目录下的 /fd1/ 目录的全部内容；
+ 
+/*
+!.gitignore
+!/fw/ 
+/fw/*
+!/fw/bin/
+!/fw/sf/
+说明：忽略全部内容，但是不忽略 .gitignore 文件、根目录下的 /fw/bin/ 和 /fw/sf/ 目录；注意要先对bin/的父目录使用!规则，使其不被排除。</pre></div>
+<h3 id="label-style-color-green-借鉴-label"><label style="color:green">借鉴</label></h3>
+
+<blockquote>
+<p><a href="https://git-scm.com/docs/gitignore" target="_blank">gitignore官网</a></p>
+</blockquote>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>TG🍬ZL </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>98</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftgkoco.github.io%2f2019%2fgitgit_ignore%25E7%259A%2584%25E4%25BD%25BF%25E7%2594%25A8%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fgitgit_ignore%25E7%259A%2584%25E4%25BD%25BF%25E7%2594%25A8%2f&amp;title=Gitignore%e7%9a%84%e4%bd%bf%e7%94%a8" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+        <a href="//service.weibo.com/share/share.php?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fgitgit_ignore%25E7%259A%2584%25E4%25BD%25BF%25E7%2594%25A8%2f&amp;appkey=&amp;title=Gitignore%e7%9a%84%e4%bd%bf%e7%94%a8" target="_blank" title="Share on Douban ">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%AD%A6%E4%B9%A0/">
+                    #学习</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/git/">
+                    #Git</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://tgkoco.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tgkoco.github.io/2019/gitgitemoji%E7%9A%84%E5%9B%BE%E6%A0%87/" class="prev" rel="prev" title="Gitemoji的图标"><i class="iconfont icon-dajiantou"></i>&nbsp;Gitemoji的图标</a>
+         
+        
+        <a href="https://tgkoco.github.io/2019/%E5%BE%AE%E5%8D%9A%E6%89%B9%E9%87%8F%E5%8F%96%E5%85%B3%E4%BB%A3%E7%A0%81/" class="next" rel="next" title="微博批量取关代码">微博批量取关代码&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tgkoco';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+ 
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      
+<style>
+    body {
+        cursor: url(https://tgkoco.github.io/cursor.ico), default;
+    }
+</style>
+
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tgkoco.github.io/">TG🍬ZL</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://tgkoco.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

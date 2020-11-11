@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git&#39; on TG zl</title>
+    <link>https://tgkoco.github.io/tags/git/</link>
+    <description>Recent content in Git&#39; on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 Sep 2019 16:22:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>开源协议</title>
+      <link>https://tgkoco.github.io/2019/sy%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Mon, 30 Sep 2019 16:22:26 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/sy%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</guid>
+      <description>&lt;h2 id=&#34;开源协议的基本区别&#34;&gt;开源协议的基本区别&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gitignore的使用</title>
+      <link>https://tgkoco.github.io/2019/sygit_ignore%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 07 Sep 2019 20:03:40 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/sygit_ignore%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;.gitignore的作用和基本用法&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gitemoji的图标</title>
+      <link>https://tgkoco.github.io/2019/sygitemoji%E7%9A%84%E5%9B%BE%E6%A0%87/</link>
+      <pubDate>Sat, 07 Sep 2019 10:46:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/sygitemoji%E7%9A%84%E5%9B%BE%E6%A0%87/</guid>
+      <description>&lt;p&gt;gitmoji的使用方式和一些官方的moji的解释&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[模板]模板样式信息</title>
+      <link>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Fri, 06 Sep 2019 10:47:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</guid>
+      <description>&lt;p&gt;内容摘要信息&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

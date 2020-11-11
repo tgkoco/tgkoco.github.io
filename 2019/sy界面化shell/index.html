@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://tgkoco.github.io/2019/sy%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" />
+  <link rel="next" href="https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/" />
+  <link rel="canonical" href="https://tgkoco.github.io/2019/sy%E7%95%8C%E9%9D%A2%E5%8C%96shell/" />
+  <link rel='shortcut icon' type='image/x-icon' href='//tgkoco.github.io/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="//tgkoco.github.io/favicon.ico">
+  <link rel="manifest" href="https://tgkoco.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://tgkoco.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           界面化shell | TG zl
+       
+  </title>
+  <meta name="title" content="界面化shell | TG zl">
+    
+  
+  <link rel="stylesheet" href="https://tgkoco.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://tgkoco.github.io/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="界面化shell"/>
+<meta name="twitter:description" content="whiptail指令"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "界面化shell",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/tgkoco.github.io\/2019\/sy%E7%95%8C%E9%9D%A2%E5%8C%96shell\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/tgkoco.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "灵感, 定义, 博文, Linux, Shell",
+  "wordcount":  445 ,
+  "url": "https:\/\/tgkoco.github.io\/2019\/sy%E7%95%8C%E9%9D%A2%E5%8C%96shell\/",
+  "datePublished": "2019-10-21T14:31:50\x2b08:00",
+  "dateModified": "2019-10-21T14:31:50\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "糖果🍬",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/tgkoco.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "TG🍬ZL"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://tgkoco.github.io/">TG zl</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://tgkoco.github.io/">TG zl</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">界面化shell</h1>
+        <div class="post-meta">
+            Written by <a href="https://tgkoco.github.io/" rel="author">TG🍬ZL</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-10-21 >21 October 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tgkoco.github.io/categories/%E8%AF%97%E5%92%8C%E8%BF%9C%E6%96%B9/"> 诗和远方 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                3 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="whiptail指令">whiptail指令</h1>
+
+<h2 id="消息框">消息框</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1"># whiptail --title &#34;&lt;message box title&gt;&#34; --msgbox &#34;&lt;text to show&gt;&#34; &lt;height&gt; &lt;width&gt;</span>
+whiptail --title <span class="s2">&#34;消息框&#34;</span> --msgbox <span class="s2">&#34;选择ok继续执行&#34;</span> <span class="m">10</span> <span class="m">60</span>
+<span class="nb">echo</span> <span class="nv">$?</span></pre></div>
+<h2 id="选择框">选择框</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#whiptail --title &#34;&lt;dialog box title&gt;&#34; --yesno &#34;&lt;text to show&gt;&#34; &lt;height&gt; &lt;width&gt;</span>
+<span class="k">if</span> <span class="o">(</span>whiptail --title <span class="s2">&#34;Yes/No 对话框&#34;</span> --yesno <span class="s2">&#34;选择yes或者no.&#34;</span> <span class="m">10</span> <span class="m">60</span><span class="o">)</span><span class="p">;</span>
+<span class="k">then</span> <span class="nb">echo</span> <span class="s2">&#34;你选择的yes</span><span class="nv">$?</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="k">else</span> <span class="nb">echo</span> <span class="s2">&#34;你选择的no</span><span class="nv">$?</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="k">fi</span></pre></div>
+<hr />
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">if</span> <span class="o">(</span>whiptail --title <span class="s2">&#34;选择对话框&#34;</span> --yes-button <span class="s2">&#34;男&#34;</span> --no-button <span class="s2">&#34;女&#34;</span>  --yesno <span class="s2">&#34;选择你的性别？&#34;</span> <span class="m">10</span> <span class="m">60</span><span class="o">)</span>
+<span class="k">then</span> <span class="nb">echo</span> <span class="s2">&#34;你选择的是男 </span><span class="nv">$?</span><span class="s2">.&#34;</span>
+<span class="k">else</span> <span class="nb">echo</span> <span class="s2">&#34;你选择的是女 </span><span class="nv">$?</span><span class="s2">.&#34;</span>
+<span class="k">fi</span></pre></div>
+<h2 id="表单输入框">表单输入框</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#whiptail --title &#34;&lt;input box title&gt;&#34; --inputbox &#34;&lt;text to show&gt;&#34; &lt;height&gt; &lt;width&gt; &lt;default-text&gt;</span>
+<span class="nv">NAME</span><span class="o">=</span><span class="k">$(</span>whiptail --title <span class="s2">&#34;表单输入框&#34;</span> --inputbox <span class="s2">&#34;你的名称?&#34;</span> <span class="m">10</span> <span class="m">60</span> <span class="s2">&#34;koco&#34;</span> <span class="m">3</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">3</span><span class="k">)</span>
+
+<span class="nv">exitstatus</span><span class="o">=</span><span class="nv">$?</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$exitstatus</span> <span class="o">=</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span>
+<span class="k">then</span> <span class="nb">echo</span> <span class="s2">&#34;你的名字是:&#34;</span> <span class="nv">$NAME</span>
+<span class="k">else</span> <span class="nb">echo</span> <span class="s2">&#34;你选择退出.&#34;</span>
+<span class="k">fi</span></pre></div>
+<h2 id="菜单栏">菜单栏</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#whiptail --title &#34;&lt;menu title&gt;&#34; --menu &#34;&lt;text to show&gt;&#34; &lt;height&gt; &lt;width&gt; &lt;menu height&gt; [ &lt;tag&gt; &lt;item&gt; ] . . .</span>
+
+<span class="nv">OPTION</span><span class="o">=</span><span class="k">$(</span>whiptail --title <span class="s2">&#34;菜单栏&#34;</span> --menu <span class="s2">&#34;选择你喜欢的编程语言.&#34;</span> <span class="m">15</span> <span class="m">60</span> <span class="m">4</span> <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;1&#34;</span> <span class="s2">&#34;Python&#34;</span> <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;2&#34;</span> <span class="s2">&#34;Java&#34;</span> <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;3&#34;</span> <span class="s2">&#34;C&#34;</span> <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;4&#34;</span> <span class="s2">&#34;PHP&#34;</span>  <span class="m">3</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">3</span><span class="k">)</span>
+
+<span class="nv">exitstatus</span><span class="o">=</span><span class="nv">$?</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$exitstatus</span> <span class="o">=</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span>
+<span class="k">then</span> <span class="nb">echo</span> <span class="s2">&#34;你最喜欢的是:&#34;</span> <span class="nv">$OPTION</span>
+<span class="k">else</span> <span class="nb">echo</span> <span class="s2">&#34;你选择退出.&#34;</span>
+<span class="k">fi</span></pre></div>
+<h2 id="多选列表">多选列表</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#语法whiptail --title &#34;&lt;checklist title&gt;&#34; --checklist &#34;&lt;text to show&gt;&#34; &lt;height&gt; &lt;width&gt; &lt;list height&gt; [ &lt;tag&gt; &lt;item&gt; &lt;status&gt; ] . . .</span>
+
+<span class="nv">DISTROS</span><span class="o">=</span><span class="k">$(</span>whiptail --title <span class="s2">&#34;多选列表&#34;</span> --checklist <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;选择你喜欢的linux系统&#34;</span> <span class="m">15</span> <span class="m">60</span> <span class="m">5</span> <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;debian&#34;</span> <span class="s2">&#34;Venerable Debian&#34;</span> ON <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;ubuntu&#34;</span> <span class="s2">&#34;Popular Ubuntu&#34;</span> OFF <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;centos&#34;</span> <span class="s2">&#34;Stable CentOS&#34;</span> OFF <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;manjaro&#34;</span> <span class="s2">&#34;beautiful Arch&#34;</span> OFF <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;mint&#34;</span> <span class="s2">&#34;Rising Star Mint&#34;</span> OFF <span class="m">3</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">3</span><span class="k">)</span>
+<span class="nv">exitstatus</span><span class="o">=</span><span class="nv">$?</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$exitstatus</span> <span class="o">=</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span>
+<span class="k">then</span> <span class="nb">echo</span> <span class="s2">&#34;Y你喜欢的是:&#34;</span><span class="nv">$DISTROS</span>
+<span class="k">else</span> <span class="nb">echo</span> <span class="s2">&#34;你选择退出.&#34;</span>
+<span class="k">fi</span></pre></div>
+<h2 id="单选框">单选框</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#whiptail --title &#34;&lt;radiolist title&gt;&#34; --radiolist &#34;&lt;text to show&gt;&#34; &lt;height&gt; &lt;width&gt; &lt;list height&gt; [ &lt;tag&gt; &lt;item&gt; &lt;status&gt; ] . . .</span>
+
+<span class="nv">DISTROS</span><span class="o">=</span><span class="k">$(</span>whiptail --title <span class="s2">&#34;单选框&#34;</span> --radiolist <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;你最喜欢的是哪个?&#34;</span> <span class="m">15</span> <span class="m">60</span> <span class="m">4</span> <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;debian&#34;</span> <span class="s2">&#34;Venerable Debian&#34;</span> ON <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;ubuntu&#34;</span> <span class="s2">&#34;Popular Ubuntu&#34;</span> OFF <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;centos&#34;</span> <span class="s2">&#34;Stable CentOS&#34;</span> OFF <span class="se">\
+</span><span class="se"></span><span class="s2">&#34;mint&#34;</span> <span class="s2">&#34;Rising Star Mint&#34;</span> OFF <span class="m">3</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">3</span><span class="k">)</span>
+
+<span class="nv">exitstatus</span><span class="o">=</span><span class="nv">$?</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$exitstatus</span> <span class="o">=</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span> 
+<span class="k">then</span> <span class="nb">echo</span> <span class="s2">&#34;你最喜欢的是:&#34;</span> <span class="nv">$DISTROS</span>
+<span class="k">else</span> <span class="nb">echo</span> <span class="s2">&#34;你选择退出.&#34;</span>
+<span class="k">fi</span></pre></div>
+<h2 id="进度条">进度条</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#whiptail --gauge &#34;&lt;test to show&gt;&#34; &lt;height&gt; &lt;width&gt; &lt;inital percent&gt;</span>
+<span class="o">{</span>
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span> i &lt;<span class="o">=</span> <span class="m">100</span> <span class="p">;</span> <span class="nv">i</span><span class="o">+=</span><span class="m">10</span><span class="o">))</span><span class="p">;</span> 
+<span class="k">do</span>
+    sleep <span class="m">0</span>.1
+    <span class="nb">echo</span> <span class="nv">$i</span>
+<span class="k">done</span>
+<span class="o">}</span> <span class="p">|</span> whiptail --gauge <span class="s2">&#34;请等待&#34;</span> <span class="m">6</span> <span class="m">60</span> <span class="m">0</span></pre></div>
+<h2 id="密码框">密码框</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#whiptail --title &#34;&lt;password box title&gt;&#34; --passwordbox &#34;&lt;text to show&gt;&#34; &lt;height&gt; &lt;width&gt;</span>
+<span class="nv">PASSWORD</span><span class="o">=</span><span class="k">$(</span>whiptail --title <span class="s2">&#34;密码框&#34;</span> --passwordbox <span class="s2">&#34;输入你的密码.&#34;</span> <span class="m">10</span> <span class="m">60</span> <span class="m">3</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">3</span><span class="k">)</span>
+
+<span class="nv">exitstatus</span><span class="o">=</span><span class="nv">$?</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$exitstatus</span> <span class="o">=</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span>
+<span class="k">then</span> <span class="nb">echo</span> <span class="s2">&#34;你的密码是:&#34;</span> <span class="nv">$PASSWORD</span>
+<span class="k">else</span> <span class="nb">echo</span> <span class="s2">&#34;你选择退出.&#34;</span>
+<span class="k">fi</span></pre></div>
+<h2 id="命令行读取内容">命令行读取内容</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">##!/bin/bash</span>
+<span class="c1">#read -p &#34;Please input a filename1:&#34; MY_FILE_NAME1</span>
+<span class="c1">#read -p &#34;Please input a filename3:&#34; MY_FILE_NAME2</span>
+<span class="c1">#echo your input filename1=&#34;$MY_FILE_NAME1&#34; filename2=&#34;$MY_FILE_NAME2&#34;</span>
+
+<span class="c1">#echo -e &#34;fileA\nfileB\n&#34; | ./input.sh</span>
+
+<span class="nb">read</span> -p <span class="s2">&#34;请输入内容:&#34;</span> MY_FILE_NAME1
+<span class="nb">echo</span> <span class="nv">你输入的内容</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$MY_FILE_NAME1</span><span class="s2">&#34;</span></pre></div>
+<h2 id="文本替换">文本替换</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#替换/etc/selinux/config中的=enforcing--&gt;=disabled</span>
+sed -i <span class="s2">&#34;s/=enforcing/=disabled/&#34;</span> /etc/selinux/config</pre></div>
+<h2 id="查找文件">查找文件</h2>
+<div class="highlight"><pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="c1">#if [ -f &#34;/etc/sysconfig/network-scripts/ifcfg-enp2s0&#34; ]</span>
+<span class="nv">res</span><span class="o">=</span><span class="k">$(</span>find /etc/sysconfig/network-scripts/ -name ifcfg-*<span class="k">)</span>
+<span class="nb">echo</span> <span class="nv">$res</span></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>TG🍬ZL </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>445</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftgkoco.github.io%2f2019%2fsy%25E7%2595%258C%25E9%259D%25A2%25E5%258C%2596shell%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fsy%25E7%2595%258C%25E9%259D%25A2%25E5%258C%2596shell%2f&amp;title=%e7%95%8c%e9%9d%a2%e5%8c%96shell" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+        <a href="//service.weibo.com/share/share.php?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fsy%25E7%2595%258C%25E9%259D%25A2%25E5%258C%2596shell%2f&amp;appkey=&amp;title=%e7%95%8c%e9%9d%a2%e5%8c%96shell" target="_blank" title="Share on Douban ">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E7%81%B5%E6%84%9F/">
+                    #灵感</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%AE%9A%E4%B9%89/">
+                    #定义</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%8D%9A%E6%96%87/">
+                    #博文</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/linux/">
+                    #Linux</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/shell/">
+                    #Shell</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://tgkoco.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tgkoco.github.io/2019/sy%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" class="prev" rel="prev" title="开源协议"><i class="iconfont icon-dajiantou"></i>&nbsp;开源协议</a>
+         
+        
+        <a href="https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/" class="next" rel="next" title="Centos网卡问题">Centos网卡问题&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tgkoco';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+ 
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      
+<style>
+    body {
+        cursor: url(https://tgkoco.github.io/cursor.ico), default;
+    }
+</style>
+
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tgkoco.github.io/">TG🍬ZL</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://tgkoco.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

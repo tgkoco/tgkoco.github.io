@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网卡 on TG zl</title>
+    <link>https://tgkoco.github.io/tags/%E7%BD%91%E5%8D%A1/</link>
+    <description>Recent content in 网卡 on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 21 Oct 2019 14:47:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/tags/%E7%BD%91%E5%8D%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Centos网卡问题</title>
+      <link>https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 21 Oct 2019 14:47:03 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h1 id=&#34;centos7网卡&#34;&gt;Centos7网卡&lt;/h1&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

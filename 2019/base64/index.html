@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://tgkoco.github.io/2019/golanggo%E8%AF%AD%E8%A8%80%E7%9A%84http%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%83%AD%E5%90%AF%E5%8A%A8/" />
+  <link rel="next" href="https://tgkoco.github.io/2019/%E4%BD%8D%E6%93%8D%E4%BD%9C/" />
+  <link rel="canonical" href="https://tgkoco.github.io/2019/base64/" />
+  <link rel='shortcut icon' type='image/x-icon' href='//tgkoco.github.io/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="//tgkoco.github.io/favicon.ico">
+  <link rel="manifest" href="https://tgkoco.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://tgkoco.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           base64编码 | TG zl
+       
+  </title>
+  <meta name="title" content="base64编码 | TG zl">
+    
+  
+  <link rel="stylesheet" href="https://tgkoco.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://tgkoco.github.io/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="base64编码"/>
+<meta name="twitter:description" content=" 下面是一个简单的base64编码实例。 在这里，三个字符组成的输入值“Ow!”是base64编码的，得到的是4个字符的base64编码值“T3ch”。它是按以下方式工作的。
+(1) 字符串&#34;Ow!&#34;被拆分成3个8位的字节(0x4F、0x77、0x21)。 (2) 这3个字节构成了一个24为的二进制01001111 01110111 00100001。 (3) 这些为被划分为一些6位的序列010011、110111、011100、1000001. (4) 每个6位值都表示了从0～63之间的数字，对应base64字母表中的64个字符之一。得到的base64编码字符串是4个字符的字符串“T3ch”。然后就可以通过线路将这个字符串作为“安全的”8位字符传送出去，因为只用了一些移植性最好的字符(字母、数字等)。 base64填充  base64编码收到一个8位字节序列，将这个二进制序列流划分成6位的块。二进制序列有时不能正好平均地分为6位的块，在这种情况下，就在序列末尾填充零位，使二进制序列的长度成为24的倍数(6和8的最小公倍数)。
+ 对已填充的二进制进行编码时，任何完全填充(不包括原始数组中的位)的6位组都有特殊的第65个符号&rdquo;=&ldquo;表示。如果6位组是部分填充的，就将填充位设置为0.
+ 下面会写一个填充实例。初始输入字符串为&rdquo;a:a&rdquo;为3个字节(24位)。24是6和8的倍数，因此按照上面给出的例子计算。无需填充就会得到base64编码为&rdquo;YTph&rdquo;。
+ 然而，再增加一个字符，输入字符串变为&rdquo;a:aa&rdquo;,转换为二进制就会有32位长。而6和8的下一个公倍数为48.因此要添加16为的填充码。填充的前4位是与数据位混合在一起的。得到的6位组01xxxx，会被当作010000、十进制中的16，或者base64编码的Q来处理。剩下的两个6位组都是填充码，用=来表示。
+a:a &ndash; 011000 010011 101001 100001 &ndash; YTph
+a:aa &ndash; 011000 010011 101001 100001 011000 01xxxx xxxxxx xxxxxx &ndash; YTphYQ==
+a:aaa &ndash; 011000 010011 101001 100001 011000 010110 0001xx xxxxxx &ndash; YTphYWE=
+a:aaaa &ndash; 011000 010011 101001 100001 011000 010110 000101 1000001 &ndash; YTphYWFh
+  "/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "base64编码",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/tgkoco.github.io\/2019\/base64\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/tgkoco.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "学习",
+  "wordcount":  61 ,
+  "url": "https:\/\/tgkoco.github.io\/2019\/base64\/",
+  "datePublished": "2019-09-07T01:49:38\x2b08:00",
+  "dateModified": "2019-09-07T01:49:38\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "糖果🍬",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/tgkoco.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "TG🍬ZL"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://tgkoco.github.io/">TG zl</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://tgkoco.github.io/">TG zl</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">base64编码</h1>
+        <div class="post-meta">
+            Written by <a href="https://tgkoco.github.io/" rel="author">TG🍬ZL</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-09-07 >7 September 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tgkoco.github.io/categories/%E7%88%B1%E7%94%9F%E6%B4%BB/"> 爱生活 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                1 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="下面是一个简单的base64编码实例">下面是一个简单的base64编码实例。</h3>
+
+<p>在这里，三个字符组成的输入值“Ow!”是base64编码的，得到的是4个字符的base64编码值“T3ch”。它是按以下方式工作的。</p>
+<div class="highlight"><pre class="chroma">(1) 字符串&#34;Ow!&#34;被拆分成3个8位的字节(0x4F、0x77、0x21)。
+
+(2) 这3个字节构成了一个24为的二进制01001111 01110111 00100001。
+
+(3) 这些为被划分为一些6位的序列010011、110111、011100、1000001.
+
+(4) 每个6位值都表示了从0～63之间的数字，对应base64字母表中的64个字符之一。得到的base64编码字符串是4个字符的字符串“T3ch”。然后就可以通过线路将这个字符串作为“安全的”8位字符传送出去，因为只用了一些移植性最好的字符(字母、数字等)。</pre></div>
+<h3 id="base64填充">base64填充</h3>
+
+<ul>
+<li>base64编码收到一个8位字节序列，将这个二进制序列流划分成6位的块。二进制序列有时不能正好平均地分为6位的块，在这种情况下，就在序列末尾填充零位，使二进制序列的长度成为24的倍数(6和8的最小公倍数)。<br /></li>
+<li>对已填充的二进制进行编码时，任何完全填充(不包括原始数组中的位)的6位组都有特殊的第65个符号&rdquo;=&ldquo;表示。如果6位组是部分填充的，就将填充位设置为0.<br /></li>
+<li>下面会写一个填充实例。初始输入字符串为&rdquo;a:a&rdquo;为3个字节(24位)。24是6和8的倍数，因此按照上面给出的例子计算。无需填充就会得到base64编码为&rdquo;YTph&rdquo;。<br /></li>
+
+<li><p>然而，再增加一个字符，输入字符串变为&rdquo;a:aa&rdquo;,转换为二进制就会有32位长。而6和8的下一个公倍数为48.因此要添加16为的填充码。填充的前4位是与数据位混合在一起的。得到的6位组01xxxx，会被当作010000、十进制中的16，或者base64编码的Q来处理。剩下的两个6位组都是填充码，用=来表示。</p>
+
+<p>a:a &ndash; 011000 010011 101001 100001 &ndash; YTph</p>
+
+<p>a:aa &ndash; 011000 010011 101001 100001 011000 01xxxx xxxxxx xxxxxx &ndash; YTphYQ==</p>
+
+<p>a:aaa &ndash; 011000 010011 101001 100001 011000 010110 0001xx xxxxxx &ndash; YTphYWE=</p>
+
+<p>a:aaaa &ndash; 011000 010011 101001 100001 011000 010110 000101 1000001 &ndash; YTphYWFh</p></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>TG🍬ZL </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>61</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftgkoco.github.io%2f2019%2fbase64%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fbase64%2f&amp;title=base64%e7%bc%96%e7%a0%81" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+        <a href="//service.weibo.com/share/share.php?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fbase64%2f&amp;appkey=&amp;title=base64%e7%bc%96%e7%a0%81" target="_blank" title="Share on Douban ">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%AD%A6%E4%B9%A0/">
+                    #学习</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://tgkoco.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tgkoco.github.io/2019/golanggo%E8%AF%AD%E8%A8%80%E7%9A%84http%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%83%AD%E5%90%AF%E5%8A%A8/" class="prev" rel="prev" title="Go语言的http服务的热启动"><i class="iconfont icon-dajiantou"></i>&nbsp;Go语言的http服务的热启动</a>
+         
+        
+        <a href="https://tgkoco.github.io/2019/%E4%BD%8D%E6%93%8D%E4%BD%9C/" class="next" rel="next" title="位操作">位操作&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tgkoco';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+ 
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      
+<style>
+    body {
+        cursor: url(https://tgkoco.github.io/cursor.ico), default;
+    }
+</style>
+
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tgkoco.github.io/">TG🍬ZL</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://tgkoco.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

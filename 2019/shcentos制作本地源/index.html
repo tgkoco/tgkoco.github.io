@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://tgkoco.github.io/2019/shcentos%E9%98%B2%E7%81%AB%E5%A2%99/" />
+  
+  <link rel="canonical" href="https://tgkoco.github.io/2019/shcentos%E5%88%B6%E4%BD%9C%E6%9C%AC%E5%9C%B0%E6%BA%90/" />
+  <link rel='shortcut icon' type='image/x-icon' href='//tgkoco.github.io/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="//tgkoco.github.io/favicon.ico">
+  <link rel="manifest" href="https://tgkoco.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://tgkoco.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Centos制作本地源 | TG zl
+       
+  </title>
+  <meta name="title" content="Centos制作本地源 | TG zl">
+    
+  
+  <link rel="stylesheet" href="https://tgkoco.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://tgkoco.github.io/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Centos制作本地源"/>
+<meta name="twitter:description" content="制作本地源"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Centos制作本地源",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/tgkoco.github.io\/2019\/shcentos%E5%88%B6%E4%BD%9C%E6%9C%AC%E5%9C%B0%E6%BA%90\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/tgkoco.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "博文, Linux, 本地源",
+  "wordcount":  77 ,
+  "url": "https:\/\/tgkoco.github.io\/2019\/shcentos%E5%88%B6%E4%BD%9C%E6%9C%AC%E5%9C%B0%E6%BA%90\/",
+  "datePublished": "2019-10-21T15:21:11\x2b08:00",
+  "dateModified": "2019-10-21T15:21:11\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "糖果🍬",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/tgkoco.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "TG🍬ZL"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://tgkoco.github.io/">TG zl</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://tgkoco.github.io/">TG zl</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Centos制作本地源</h1>
+        <div class="post-meta">
+            Written by <a href="https://tgkoco.github.io/" rel="author">TG🍬ZL</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-10-21 >21 October 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tgkoco.github.io/categories/%E7%88%B1%E7%94%9F%E6%B4%BB/"> 爱生活 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                1 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="制作本地源">制作本地源</h2>
+
+<h3 id="安装createrepo">安装createrepo</h3>
+<div class="highlight"><pre class="chroma">yum install -y createrepo</pre></div>
+<h3 id="下载rpm包到本地">下载rpm包到本地</h3>
+<div class="highlight"><pre class="chroma">vi /etc/yum.conf
+将keepcache的值设置为1;
+这样就可以将yum安装时的rpm包保存在 /var/cache/yum下面</pre></div>
+<h3 id="创建本地源">创建本地源</h3>
+
+<p>1.新建本地源目录</p>
+<div class="highlight"><pre class="chroma">mkdir /local-yum/
+将安装所需的包放置到创建的目录中，注意依赖的包文件 </pre></div>
+<p>2.在/etc/yum.repos.d/下面创建一个repo文件</p>
+<div class="highlight"><pre class="chroma">[local-yum]
+name=local-yum
+baseurl=file:///local-yum/ #文件目录不能设置到i386，否则本地源使用会报错
+enabled=1
+gpgcheck=0
+
+解释：[....]     代表这个库的名字，必须是唯一的，不可以重复。
+name＝     是这个库的说明，没有太大的实际意义，只是一个字段说明。
+baseurl＝  说明采取什么方式传输，具体路径在哪里，可以使用的方式有,file:///，ftp://，http://等
+enabled=1  说明启用这个更新库，0表示不启用。
+gpgcheck=1 表示使用gpg文件来检查软件包的签名
+gpgkey=    表示gpg文件所存放的位置，此处也可以有http方式的位置。</pre></div>
+<p>3.开始生成配置文件</p>
+<div class="highlight"><pre class="chroma">cd /local-yum
+createrepo ./
+createrepo -v ./
+执行完成之后会出现一个文件夹，不要动它
+后期更新可以使用createrepo --update ./</pre></div>
+<p>4.更新本地源</p>
+<div class="highlight"><pre class="chroma">cd /etc/yum.repos.d/
+mkdir backup
+备份原来的源信息，只保留自己创建的.repo文件
+mv ./Cent* ./backup
+
+yum clean all
+yum repolist
+yum list
+之后就可以yum install -y 安装你打包的软件</pre></div>
+<p>5.例子</p>
+<div class="highlight"><pre class="chroma">[gantry_rpm]
+name= gantry_rpm local repository
+baseurl=file:///soft/gantry_rpm
+gpgcheck=0
+enabled=1</pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>TG🍬ZL </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>77</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftgkoco.github.io%2f2019%2fshcentos%25E5%2588%25B6%25E4%25BD%259C%25E6%259C%25AC%25E5%259C%25B0%25E6%25BA%2590%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fshcentos%25E5%2588%25B6%25E4%25BD%259C%25E6%259C%25AC%25E5%259C%25B0%25E6%25BA%2590%2f&amp;title=Centos%e5%88%b6%e4%bd%9c%e6%9c%ac%e5%9c%b0%e6%ba%90" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+        <a href="//service.weibo.com/share/share.php?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fshcentos%25E5%2588%25B6%25E4%25BD%259C%25E6%259C%25AC%25E5%259C%25B0%25E6%25BA%2590%2f&amp;appkey=&amp;title=Centos%e5%88%b6%e4%bd%9c%e6%9c%ac%e5%9c%b0%e6%ba%90" target="_blank" title="Share on Douban ">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%8D%9A%E6%96%87/">
+                    #博文</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/linux/">
+                    #Linux</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E6%9C%AC%E5%9C%B0%E6%BA%90/">
+                    #本地源</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://tgkoco.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tgkoco.github.io/2019/shcentos%E9%98%B2%E7%81%AB%E5%A2%99/" class="prev" rel="prev" title="Centos常见的坑"><i class="iconfont icon-dajiantou"></i>&nbsp;Centos常见的坑</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tgkoco';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+ 
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      
+<style>
+    body {
+        cursor: url(https://tgkoco.github.io/cursor.ico), default;
+    }
+</style>
+
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tgkoco.github.io/">TG🍬ZL</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://tgkoco.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

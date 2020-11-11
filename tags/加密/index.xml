@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>加密 on TG zl</title>
+    <link>https://tgkoco.github.io/tags/%E5%8A%A0%E5%AF%86/</link>
+    <description>Recent content in 加密 on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 07 Sep 2019 01:49:38 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/tags/%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>base64编码</title>
+      <link>https://tgkoco.github.io/2019/nhbase64/</link>
+      <pubDate>Sat, 07 Sep 2019 01:49:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/nhbase64/</guid>
+      <description> 下面是一个简单的base64编码实例。 在这里，三个字符组成的输入值“Ow!”是base64编码的，得到的是4个字符的base64编码值“T3ch”。它是按以下方式工作的。
+(1) 字符串&amp;#34;Ow!&amp;#34;被拆分成3个8位的字节(0x4F、0x77、0x21)。 (2) 这3个字节构成了一个24为的二进制01001111 01110111 00100001。 (3) 这些为被划分为一些6位的序列010011、110111、011100、1000001. (4) 每个6位值都表示了从0～63之间的数字，对应base64字母表中的64个字符之一。得到的base64编码字符串是4个字符的字符串“T3ch”。然后就可以通过线路将这个字符串作为“安全的”8位字符传送出去，因为只用了一些移植性最好的字符(字母、数字等)。 base64填充  base64编码收到一个8位字节序列，将这个二进制序列流划分成6位的块。二进制序列有时不能正好平均地分为6位的块，在这种情况下，就在序列末尾填充零位，使二进制序列的长度成为24的倍数(6和8的最小公倍数)。
+ 对已填充的二进制进行编码时，任何完全填充(不包括原始数组中的位)的6位组都有特殊的第65个符号&amp;rdquo;=&amp;ldquo;表示。如果6位组是部分填充的，就将填充位设置为0.
+ 下面会写一个填充实例。初始输入字符串为&amp;rdquo;a:a&amp;rdquo;为3个字节(24位)。24是6和8的倍数，因此按照上面给出的例子计算。无需填充就会得到base64编码为&amp;rdquo;YTph&amp;rdquo;。
+ 然而，再增加一个字符，输入字符串变为&amp;rdquo;a:aa&amp;rdquo;,转换为二进制就会有32位长。而6和8的下一个公倍数为48.因此要添加16为的填充码。填充的前4位是与数据位混合在一起的。得到的6位组01xxxx，会被当作010000、十进制中的16，或者base64编码的Q来处理。剩下的两个6位组都是填充码，用=来表示。
+a:a &amp;ndash; 011000 010011 101001 100001 &amp;ndash; YTph
+a:aa &amp;ndash; 011000 010011 101001 100001 011000 01xxxx xxxxxx xxxxxx &amp;ndash; YTphYQ==
+a:aaa &amp;ndash; 011000 010011 101001 100001 011000 010110 0001xx xxxxxx &amp;ndash; YTphYWE=
+a:aaaa &amp;ndash; 011000 010011 101001 100001 011000 010110 000101 1000001 &amp;ndash; YTphYWFh
+  </description>
+    </item>
+    
+    <item>
+      <title>[模板]模板样式信息</title>
+      <link>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Fri, 06 Sep 2019 10:47:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/nh%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</guid>
+      <description>&lt;p&gt;内容摘要信息&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

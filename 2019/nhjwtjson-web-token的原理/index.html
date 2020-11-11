@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://tgkoco.github.io/2019/shgoland%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98/" />
+  <link rel="next" href="https://tgkoco.github.io/2019/bcgolog/" />
+  <link rel="canonical" href="https://tgkoco.github.io/2019/nhjwtjson-web-token%E7%9A%84%E5%8E%9F%E7%90%86/" />
+  <link rel='shortcut icon' type='image/x-icon' href='//tgkoco.github.io/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="//tgkoco.github.io/favicon.ico">
+  <link rel="manifest" href="https://tgkoco.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://tgkoco.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JSON Web Token的作用和解释 | TG zl
+       
+  </title>
+  <meta name="title" content="JSON Web Token的作用和解释 | TG zl">
+    
+  
+  <link rel="stylesheet" href="https://tgkoco.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://tgkoco.github.io/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JSON Web Token的作用和解释"/>
+<meta name="twitter:description" content="JSON Web Token（缩写 JWT）是目前最流行的跨域认证解决方案，本文介绍它的原理和用法。 一、跨域认证的问题 互联网服务离不开用户认证。一般流程是下面这样。
+1、用户向服务器发送用户名和密码。 2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。 3、服务器向用户返回一个 session_id，写入用户的 Cookie。 4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。 5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。 这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，如果是服务器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能够读取 session。
+举例来说，A 网站和 B 网站是同一家公司的关联服务。现在要求，用户只要在其中一个网站登录，再访问另一个网站就会自动登录，请问怎么实现？
+一种解决方案是 session 数据持久化，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。
+另一种方案是服务器索性不保存 session 数据了，所有数据都保存在客户端，每次请求都发回服务器。JWT 就是这种方案的一个代表。
+二、JWT 的原理 JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，就像下面这样。
+{ &#34;姓名&#34;: &#34;张三&#34;, &#34;角色&#34;: &#34;管理员&#34;, &#34;到期时间&#34;: &#34;2018年7月1日0点0分&#34; } 以后，用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名（详见后文）。
+服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。
+三、JWT 的数据结构 实际的 JWT 大概就像下面这样。
+它是一个很长的字符串，中间用点（.）分隔成三个部分。注意，JWT 内部是没有换行的，这里只是为了便于展示，将它写成了几行。
+一个JWT实际上就是一个字符串，它由三部分组成，头部、载荷与签名。
+JWT 的三个部分依次如下。
+Header（头部） Payload（负载） Signature（签名） 写成一行，就是下面的样子。
+Header.Payload.Signature 下面依次介绍这三个部分。
+3.1 Header Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JSON Web Token的作用和解释",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/tgkoco.github.io\/2019\/nhjwtjson-web-token%E7%9A%84%E5%8E%9F%E7%90%86\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/tgkoco.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "定义",
+  "wordcount":  520 ,
+  "url": "https:\/\/tgkoco.github.io\/2019\/nhjwtjson-web-token%E7%9A%84%E5%8E%9F%E7%90%86\/",
+  "datePublished": "2019-09-07T01:55:38\x2b08:00",
+  "dateModified": "2019-09-07T01:55:38\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "糖果🍬",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/tgkoco.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "TG🍬ZL"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://tgkoco.github.io/">TG zl</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://tgkoco.github.io/">TG zl</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">JSON Web Token的作用和解释</h1>
+        <div class="post-meta">
+            Written by <a href="https://tgkoco.github.io/" rel="author">TG🍬ZL</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-09-07 >7 September 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tgkoco.github.io/categories/%E6%9C%89%E5%86%85%E6%B6%B5/"> 有内涵 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                3 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="json-web-token-缩写-jwt-是目前最流行的跨域认证解决方案-本文介绍它的原理和用法">JSON Web Token（缩写 JWT）是目前最流行的跨域认证解决方案，本文介绍它的原理和用法。</h2>
+
+<h3 id="一-跨域认证的问题">一、跨域认证的问题</h3>
+
+<p>互联网服务离不开用户认证。一般流程是下面这样。</p>
+<div class="highlight"><pre class="chroma">1、用户向服务器发送用户名和密码。
+2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。
+3、服务器向用户返回一个 session_id，写入用户的 Cookie。
+4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。
+5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。</pre></div>
+<p>这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，如果是服务器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能够读取 session。</p>
+
+<p>举例来说，A 网站和 B 网站是同一家公司的关联服务。现在要求，用户只要在其中一个网站登录，再访问另一个网站就会自动登录，请问怎么实现？</p>
+
+<p>一种解决方案是 session 数据持久化，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。</p>
+
+<p>另一种方案是服务器索性不保存 session 数据了，所有数据都保存在客户端，每次请求都发回服务器。JWT 就是这种方案的一个代表。</p>
+
+<h3 id="二-jwt-的原理">二、JWT 的原理</h3>
+
+<p>JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，就像下面这样。</p>
+<div class="highlight"><pre class="chroma">{
+  &#34;姓名&#34;: &#34;张三&#34;,
+  &#34;角色&#34;: &#34;管理员&#34;,
+  &#34;到期时间&#34;: &#34;2018年7月1日0点0分&#34;
+}</pre></div>
+<p>以后，用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名（详见后文）。</p>
+
+<p>服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。</p>
+
+<h3 id="三-jwt-的数据结构">三、JWT 的数据结构</h3>
+
+<p>实际的 JWT 大概就像下面这样。</p>
+
+<p>它是一个很长的字符串，中间用点（.）分隔成三个部分。注意，JWT 内部是没有换行的，这里只是为了便于展示，将它写成了几行。</p>
+
+<p>一个JWT实际上就是一个字符串，它由三部分组成，头部、载荷与签名。</p>
+
+<p>JWT 的三个部分依次如下。</p>
+<div class="highlight"><pre class="chroma">    Header（头部）
+    Payload（负载）
+    Signature（签名）</pre></div>
+<p>写成一行，就是下面的样子。</p>
+<div class="highlight"><pre class="chroma">Header.Payload.Signature</pre></div>
+<p>下面依次介绍这三个部分。</p>
+
+<h4 id="3-1-header">3.1 Header</h4>
+
+<p>Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。</p>
+<div class="highlight"><pre class="chroma">{
+  &#34;alg&#34;: &#34;HS256&#34;,
+  &#34;typ&#34;: &#34;JWT&#34;
+}</pre></div>
+<p>上面代码中，alg属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）；typ属性表示这个令牌（token）的类型（type），JWT 令牌统一写为JWT。</p>
+
+<p>最后，将上面的 JSON 对象使用 Base64URL 算法（详见后文）转成字符串。</p>
+
+<h4 id="3-2-payload">3.2 Payload</h4>
+
+<p>Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据。JWT 规定了7个官方字段，供选用。</p>
+<div class="highlight"><pre class="chroma">    iss (issuer)：签发人
+    exp (expiration time)：过期时间
+    sub (subject)：主题
+    aud (audience)：受众
+    nbf (Not Before)：生效时间
+    iat (Issued At)：签发时间
+    jti (JWT ID)：编号</pre></div>
+<p>除了官方字段，你还可以在这个部分定义私有字段，下面就是一个例子。</p>
+<div class="highlight"><pre class="chroma">{
+  &#34;sub&#34;: &#34;1234567890&#34;,
+  &#34;name&#34;: &#34;John Doe&#34;,
+  &#34;admin&#34;: true
+}</pre></div>
+<p>注意，JWT 默认是不加密的，任何人都可以读到，所以不要把秘密信息放在这个部分。</p>
+
+<p>这个 JSON 对象也要使用 Base64URL 算法转成字符串。</p>
+
+<h4 id="3-3-signature">3.3 Signature</h4>
+
+<p>Signature 部分是对前两部分的签名，防止数据篡改。</p>
+
+<p>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。</p>
+<div class="highlight"><pre class="chroma">HMACSHA256(
+  base64UrlEncode(header) + &#34;.&#34; +
+  base64UrlEncode(payload),
+  secret)</pre></div>
+<p>算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用&rdquo;点&rdquo;（.）分隔，就可以返回给用户。</p>
+
+<h4 id="3-4-base64url">3.4 Base64URL</h4>
+
+<p>前面提到，Header 和 Payload 串型化的算法是 Base64URL。这个算法跟 Base64 算法基本类似，但有一些小的不同。</p>
+
+<p>JWT 作为一个令牌（token），有些场合可能会放到 URL（比如 api.example.com/?token=xxx）。Base64 有三个字符+、/和=，在 URL 里面有特殊含义，所以要被替换掉：=被省略、+替换成-，/替换成_ 。这就是 Base64URL 算法。</p>
+
+<h3 id="四-jwt-的使用方式">四、JWT 的使用方式</h3>
+
+<p>客户端收到服务器返回的 JWT，可以储存在 Cookie 里面，也可以储存在 localStorage。</p>
+
+<p>此后，客户端每次与服务器通信，都要带上这个 JWT。你可以把它放在 Cookie 里面自动发送，但是这样不能跨域，所以更好的做法是放在 HTTP 请求的头信息Authorization字段里面。</p>
+<div class="highlight"><pre class="chroma">Authorization: Bearer &lt;token&gt;</pre></div>
+<p>另一种做法是，跨域的时候，JWT 就放在 POST 请求的数据体里面。</p>
+
+<h3 id="五-jwt-的几个特点">五、JWT 的几个特点</h3>
+
+<p>（1）JWT 默认是不加密，但也是可以加密的。生成原始 Token 以后，可以用密钥再加密一次。</p>
+
+<p>（2）JWT 不加密的情况下，不能将秘密数据写入 JWT。</p>
+
+<p>（3）JWT 不仅可以用于认证，也可以用于交换信息。有效使用 JWT，可以降低服务器查询数据库的次数。</p>
+
+<p>（4）JWT 的最大缺点是，由于服务器不保存 session 状态，因此无法在使用过程中废止某个 token，或者更改 token 的权限。也就是说，一旦 JWT 签发了，在到期之前就会始终有效，除非服务器部署额外的逻辑。</p>
+
+<p>（5）JWT 本身包含了认证信息，一旦泄露，任何人都可以获得该令牌的所有权限。为了减少盗用，JWT 的有效期应该设置得比较短。对于一些比较重要的权限，使用时应该再次对用户进行认证。</p>
+
+<p>（6）为了减少盗用，JWT 不应该使用 HTTP 协议明码传输，要使用 HTTPS 协议传输。</p>
+
+<h2 id="jwt签名算法中hs256和rs256有什么区别">JWT签名算法中HS256和RS256有什么区别</h2>
+
+<ul>
+<li><p>JWT签名算法中，一般有两个选择，一个采用HS256,另外一个就是采用RS256。</p></li>
+
+<li><p>签名实际上是一个加密的过程，生成一段标识（也是JWT的一部分）作为接收方验证信息是否被篡改的依据。</p></li>
+
+<li><p>RS256 (采用SHA-256 的 RSA 签名) 是一种非对称算法, 它使用公共/私钥对: 标识提供方采用私钥生成签名, JWT 的使用方获取公钥以验证签名。由于公钥 (与私钥相比) 不需要保护, 因此大多数标识提供方使其易于使用方获取和使用 (通常通过一个元数据URL).(公钥签名私钥解,私钥签名,公钥解)</p></li>
+
+<li><p>HS256 (带有 SHA-256 的 HMAC 是一种对称算法, 双方之间仅共享一个 密钥。由于使用相同的密钥生成签名和验证签名, 因此必须注意确保密钥不被泄密。</p></li>
+
+<li><p>在开发应用(非网站)的时候启用JWT，使用RS256更加安全，你可以控制谁能使用什么类型的密钥。另外，如果你无法控制客户端，无法做到密钥的完全保密，RS256会是个更佳的选择，JWT的使用方只需要知道公钥。</p></li>
+
+<li><p>由于公钥通常可以从元数据URL节点获得，因此可以对客户端进行进行编程以自动检索公钥。如果采用这种方式，从服务器上直接下载公钥信息，可以有效的减少配置信息。</p></li>
+
+<li><p>如果只是集中签名，集中验证签名那没啥区别。采用非对称算法签名，只要有公钥就可以验证签名，可以颁发给其他应用  .</p></li>
+</ul>
+
+<h4 id="java中的实际使用">java中的实际使用</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">JwtUtils</span> <span class="p">{</span>
+    <span class="cm">/**
+</span><span class="cm">     * 签发JWT
+</span><span class="cm">     * @param id
+</span><span class="cm">     * @param subject 可以是JSON数据 尽可能少
+</span><span class="cm">     * @param ttlMillis
+</span><span class="cm">     * @return  String
+</span><span class="cm">     *
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">static</span> <span class="n">String</span> <span class="nf">createJWT</span><span class="p">(</span><span class="n">String</span> <span class="nf">id</span><span class="p">,</span> <span class="n">String</span> <span class="nf">subject</span><span class="p">,</span> <span class="kt">long</span> <span class="nf">ttlMillis</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">SignatureAlgorithm</span> <span class="nf">signatureAlgorithm</span> <span class="o">=</span> <span class="n">SignatureAlgorithm</span><span class="p">.</span><span class="na">HS256</span><span class="p">;</span>
+        <span class="kt">long</span> <span class="nf">nowMillis</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="n">Date</span> <span class="nf">now</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">nowMillis</span><span class="p">);</span>
+        <span class="n">SecretKey</span> <span class="nf">secretKey</span> <span class="o">=</span> <span class="n">generalKey</span><span class="p">();</span>
+        <span class="n">JwtBuilder</span> <span class="nf">builder</span> <span class="o">=</span> <span class="n">Jwts</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">setSubject</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span>   <span class="c1">// 主题
+</span><span class="c1"></span>                <span class="p">.</span><span class="na">setIssuer</span><span class="p">(</span><span class="s">&#34;user&#34;</span><span class="p">)</span>     <span class="c1">// 签发者
+</span><span class="c1"></span>                <span class="p">.</span><span class="na">setIssuedAt</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>      <span class="c1">// 签发时间
+</span><span class="c1"></span>                <span class="p">.</span><span class="na">signWith</span><span class="p">(</span><span class="n">signatureAlgorithm</span><span class="p">,</span> <span class="n">secretKey</span><span class="p">);</span> <span class="c1">// 签名算法以及密匙
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">ttlMillis</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">long</span> <span class="nf">expMillis</span> <span class="o">=</span> <span class="n">nowMillis</span> <span class="o">+</span> <span class="n">ttlMillis</span><span class="p">;</span>
+            <span class="n">Date</span> <span class="nf">expDate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">expMillis</span><span class="p">);</span>
+            <span class="n">builder</span><span class="p">.</span><span class="na">setExpiration</span><span class="p">(</span><span class="n">expDate</span><span class="p">);</span> <span class="c1">// 过期时间
+</span><span class="c1"></span>        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">builder</span><span class="p">.</span><span class="na">compact</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="cm">/**
+</span><span class="cm">     * 验证JWT
+</span><span class="cm">     * @param jwtStr
+</span><span class="cm">     * @return
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">static</span> <span class="n">CheckResult</span> <span class="nf">validateJWT</span><span class="p">(</span><span class="n">String</span> <span class="nf">jwtStr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">CheckResult</span> <span class="nf">checkResult</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CheckResult</span><span class="p">();</span>
+        <span class="n">Claims</span> <span class="nf">claims</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">claims</span> <span class="o">=</span> <span class="n">parseJWT</span><span class="p">(</span><span class="n">jwtStr</span><span class="p">);</span>
+            <span class="n">checkResult</span><span class="p">.</span><span class="na">setSuccess</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+            <span class="n">checkResult</span><span class="p">.</span><span class="na">setClaims</span><span class="p">(</span><span class="n">claims</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ExpiredJwtException</span> <span class="nf">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">checkResult</span><span class="p">.</span><span class="na">setErrCode</span><span class="p">(</span><span class="n">SystemConstant</span><span class="p">.</span><span class="na">JWT_ERRCODE_EXPIRE</span><span class="p">);</span>
+            <span class="n">checkResult</span><span class="p">.</span><span class="na">setSuccess</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">SignatureException</span> <span class="nf">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">checkResult</span><span class="p">.</span><span class="na">setErrCode</span><span class="p">(</span><span class="n">SystemConstant</span><span class="p">.</span><span class="na">JWT_ERRCODE_FAIL</span><span class="p">);</span>
+            <span class="n">checkResult</span><span class="p">.</span><span class="na">setSuccess</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="nf">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">checkResult</span><span class="p">.</span><span class="na">setErrCode</span><span class="p">(</span><span class="n">SystemConstant</span><span class="p">.</span><span class="na">JWT_ERRCODE_FAIL</span><span class="p">);</span>
+            <span class="n">checkResult</span><span class="p">.</span><span class="na">setSuccess</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">checkResult</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="nf">static</span> <span class="n">SecretKey</span> <span class="nf">generalKey</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">byte</span><span class="p">[]</span> <span class="nf">encodedKey</span> <span class="o">=</span> <span class="n">Base64</span><span class="p">.</span><span class="na">decode</span><span class="p">(</span><span class="n">SystemConstant</span><span class="p">.</span><span class="na">JWT_SECERT</span><span class="p">);</span>
+        <span class="n">SecretKey</span> <span class="nf">key</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">encodedKey</span><span class="p">,</span> <span class="n">0</span><span class="p">,</span> <span class="n">encodedKey</span><span class="p">.</span><span class="na">length</span><span class="p">,</span> <span class="s">&#34;AES&#34;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">key</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="cm">/**
+</span><span class="cm">     * 
+</span><span class="cm">     * 解析JWT字符串
+</span><span class="cm">     * @param jwt
+</span><span class="cm">     * @return
+</span><span class="cm">     * @throws Exception
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">static</span> <span class="n">Claims</span> <span class="nf">parseJWT</span><span class="p">(</span><span class="n">String</span> <span class="nf">jwt</span><span class="p">)</span> <span class="kd">throws</span> <span class="nf">Exception</span> <span class="p">{</span>
+        <span class="n">SecretKey</span> <span class="nf">secretKey</span> <span class="o">=</span> <span class="n">generalKey</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">Jwts</span><span class="p">.</span><span class="na">parser</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">setSigningKey</span><span class="p">(</span><span class="n">secretKey</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">parseClaimsJws</span><span class="p">(</span><span class="n">jwt</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">getBody</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">如何使用</span><span class="err">？</span><span class="n">代码实例</span><span class="err">：</span>
+
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">LoginController</span> <span class="p">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="n">UserRepository</span> <span class="nf">userRepository</span><span class="p">;</span>
+    
+    <span class="nd">@ApiOperation</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;用户登陆&#34;</span><span class="p">)</span>
+    <span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;login&#34;</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="nf">ReturnVo</span> <span class="n">login</span><span class="p">(</span><span class="n">String</span> <span class="nf">username</span><span class="p">,</span> <span class="n">String</span> <span class="nf">password</span><span class="p">,</span><span class="n">HttpServletResponse</span>
+            <span class="nf">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">User</span> <span class="nf">user</span> <span class="o">=</span>  <span class="n">userRepository</span><span class="p">.</span><span class="na">findByUsername</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">user</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getPassword</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">password</span><span class="p">)){</span>
+                <span class="c1">//把token返回给客户端--&gt;客户端保存至cookie--&gt;客户端每次请求附带cookie参数
+</span><span class="c1"></span>                <span class="n">String</span> <span class="nf">JWT</span> <span class="o">=</span> <span class="n">JwtUtils</span><span class="p">.</span><span class="na">createJWT</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">SystemConstant</span><span class="p">.</span><span class="na">JWT_TTL</span><span class="p">);</span>
+                <span class="k">return</span> <span class="n">ReturnVo</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">JWT</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="k">return</span> <span class="n">ReturnVo</span><span class="p">.</span><span class="na">error</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="n">ReturnVo</span><span class="p">.</span><span class="na">error</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nd">@ApiOperation</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;获取用户信息&#34;</span><span class="p">)</span>
+    <span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;description&#34;</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="nf">ReturnVo</span> <span class="n">description</span><span class="p">(</span><span class="n">String</span> <span class="nf">username</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">User</span> <span class="nf">user</span> <span class="o">=</span>  <span class="n">userRepository</span><span class="p">.</span><span class="na">findByUsername</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">ReturnVo</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getDescription</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="借鉴">借鉴</h3>
+
+<blockquote>
+<p><a href="http://blog.leapoahead.com/2015/09/06/understanding-jwt/" rel="nofollow noreferrer" target="_blank">JSON Web Token</a><br />
+<a href="https://www.cnblogs.com/menyiin/p/token.html" rel="nofollow noreferrer" target="_blank">token的服务端校验</a><br />
+<a href="https://cnodejs.org/topic/557844a8e3cc2f192486a8ff" rel="nofollow noreferrer" target="_blank">JWT 在前后端分离中的应用与实践 </a></p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>TG🍬ZL </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>520</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftgkoco.github.io%2f2019%2fnhjwtjson-web-token%25E7%259A%2584%25E5%258E%259F%25E7%2590%2586%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fnhjwtjson-web-token%25E7%259A%2584%25E5%258E%259F%25E7%2590%2586%2f&amp;title=JSON%20Web%20Token%e7%9a%84%e4%bd%9c%e7%94%a8%e5%92%8c%e8%a7%a3%e9%87%8a" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+        <a href="//service.weibo.com/share/share.php?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fnhjwtjson-web-token%25E7%259A%2584%25E5%258E%259F%25E7%2590%2586%2f&amp;appkey=&amp;title=JSON%20Web%20Token%e7%9a%84%e4%bd%9c%e7%94%a8%e5%92%8c%e8%a7%a3%e9%87%8a" target="_blank" title="Share on Douban ">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%AE%9A%E4%B9%89/">
+                    #定义</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://tgkoco.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tgkoco.github.io/2019/shgoland%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98/" class="prev" rel="prev" title="goland自定义主题"><i class="iconfont icon-dajiantou"></i>&nbsp;goland自定义主题</a>
+         
+        
+        <a href="https://tgkoco.github.io/2019/bcgolog/" class="next" rel="next" title="Go包log">Go包log&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tgkoco';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+ 
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      
+<style>
+    body {
+        cursor: url(https://tgkoco.github.io/cursor.ico), default;
+    }
+</style>
+
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tgkoco.github.io/">TG🍬ZL</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://tgkoco.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

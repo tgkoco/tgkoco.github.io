@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>学习 on TG zl</title>
+    <link>https://tgkoco.github.io/tags/%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 学习 on TG zl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 07 Sep 2019 20:03:40 +0800</lastBuildDate>
+    
+	<atom:link href="https://tgkoco.github.io/tags/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitignore的使用</title>
+      <link>https://tgkoco.github.io/2019/gitgit_ignore%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 07 Sep 2019 20:03:40 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/gitgit_ignore%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;.gitignore的作用和基本用法&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gitemoji的图标</title>
+      <link>https://tgkoco.github.io/2019/gitgitemoji%E7%9A%84%E5%9B%BE%E6%A0%87/</link>
+      <pubDate>Sat, 07 Sep 2019 10:46:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/gitgitemoji%E7%9A%84%E5%9B%BE%E6%A0%87/</guid>
+      <description>&lt;p&gt;gitmoji的使用方式和一些官方的moji的解释&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go包time</title>
+      <link>https://tgkoco.github.io/2019/golangtime/</link>
+      <pubDate>Sat, 07 Sep 2019 07:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golangtime/</guid>
+      <description> time 时间操作  time.Sleep(d Duration),程序睡眠一段时间，后者是一个type Duration int64类型的数字，一般使用的（10 * time.Second）表示十秒。
+ time.Now() Time，获取local当前的时间，Time是一个结构体，包含很多的方法。获取秒数，转换地区。。。
+ time.Add(d Duration),时间增加一段时间,
+ func (t Time) UTC() Time UTC返回采用UTC和零时区，但指向同一时间点的Time。
+ func (t Time) Unix() int64 Unix将t表示为Unix时间，即从时间点January 1, 1970 UTC到时间点t所经过的时间（单位秒）。
+  </description>
+    </item>
+    
+    <item>
+      <title>Go包strins</title>
+      <link>https://tgkoco.github.io/2019/golangstrings/</link>
+      <pubDate>Sat, 07 Sep 2019 06:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golangstrings/</guid>
+      <description> strins工具包  trings.IndexByte(name, &amp;lsquo;.&amp;rsquo;) == 0 //以.开头的文件,返回的是一个‘.’在name中的位置信息，从0开始  </description>
+    </item>
+    
+    <item>
+      <title>Go包strconv</title>
+      <link>https://tgkoco.github.io/2019/golangstrconv/</link>
+      <pubDate>Sat, 07 Sep 2019 05:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golangstrconv/</guid>
+      <description> strconv string的类型转换包  strconv.Itoa(i int) string,将int类型转为string类型，底层使用的是FormatInt(int64(i), 10)
+ strconv.FormatInt(i int64, base int) string,将int64 变为string，后者表示的是for 2 &amp;lt;= base &amp;lt;= 36.一般使用的是10，表示10进制
+   </description>
+    </item>
+    
+    <item>
+      <title>Go包os</title>
+      <link>https://tgkoco.github.io/2019/golangos/</link>
+      <pubDate>Sat, 07 Sep 2019 03:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golangos/</guid>
+      <description> os的工具包  os.Exit(1)：退出程序
+ os.Args 获取执行命令的参数和该命令所在的路径信信息E:\GoWorkstation\src\exercisecode\goCodeText\初始化\切片.exe hh dd]
+ os.Stat(dir)：dir是文件的路径，可以是文件夹或者文件，返回的是一个os.FileInfo和一个错误信息，前者就是文件的具体信息。
+ os.Open(dir)，返回的是一个os.*File的地址，表示的是一个文件的结构体。可以执行其绑定的方法。
+ os.Rename(oldpath, newpath string) error,更改文件的名称，返回的是一个error
+func (f *File) Readdirnames(n int) (names []string, err error) *file对象的方法，返回的是目录中的文件的名称信息。  </description>
+    </item>
+    
+    <item>
+      <title>Go包log</title>
+      <link>https://tgkoco.github.io/2019/golanglog/</link>
+      <pubDate>Sat, 07 Sep 2019 02:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golanglog/</guid>
+      <description>log工具包 log.Fatal(v),返回一个时间和日期的日志信息，并且执行os.Exit(1)终止程序。
+log.FatalF(&amp;ldquo;%s&amp;rdquo;,string),支持使用占位符。</description>
+    </item>
+    
+    <item>
+      <title>JSON Web Token的作用和解释</title>
+      <link>https://tgkoco.github.io/2019/jwtjson-web-token%E7%9A%84%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Sat, 07 Sep 2019 01:55:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/jwtjson-web-token%E7%9A%84%E5%8E%9F%E7%90%86/</guid>
+      <description>JSON Web Token（缩写 JWT）是目前最流行的跨域认证解决方案，本文介绍它的原理和用法。 一、跨域认证的问题 互联网服务离不开用户认证。一般流程是下面这样。
+1、用户向服务器发送用户名和密码。 2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。 3、服务器向用户返回一个 session_id，写入用户的 Cookie。 4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。 5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。 这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，如果是服务器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能够读取 session。
+举例来说，A 网站和 B 网站是同一家公司的关联服务。现在要求，用户只要在其中一个网站登录，再访问另一个网站就会自动登录，请问怎么实现？
+一种解决方案是 session 数据持久化，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。
+另一种方案是服务器索性不保存 session 数据了，所有数据都保存在客户端，每次请求都发回服务器。JWT 就是这种方案的一个代表。
+二、JWT 的原理 JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，就像下面这样。
+{ &amp;#34;姓名&amp;#34;: &amp;#34;张三&amp;#34;, &amp;#34;角色&amp;#34;: &amp;#34;管理员&amp;#34;, &amp;#34;到期时间&amp;#34;: &amp;#34;2018年7月1日0点0分&amp;#34; } 以后，用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名（详见后文）。
+服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。
+三、JWT 的数据结构 实际的 JWT 大概就像下面这样。
+它是一个很长的字符串，中间用点（.）分隔成三个部分。注意，JWT 内部是没有换行的，这里只是为了便于展示，将它写成了几行。
+一个JWT实际上就是一个字符串，它由三部分组成，头部、载荷与签名。
+JWT 的三个部分依次如下。
+Header（头部） Payload（负载） Signature（签名） 写成一行，就是下面的样子。
+Header.Payload.Signature 下面依次介绍这三个部分。
+3.1 Header Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。</description>
+    </item>
+    
+    <item>
+      <title>Go 语言学习资料与社区索引</title>
+      <link>https://tgkoco.github.io/2019/1.unknwon%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
+      <pubDate>Sat, 07 Sep 2019 01:50:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/1.unknwon%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
+      <description>无闻的学习路线推荐  Go 语言学习资料与社区索引
+ 鉴于之前有人做的 索引资料 已经过期超过 ~2~3 年，所以特开此坑。各位同学可以通过发起 Fork + Pull Request 的方式进行补充和更新。
+最后更新时间：2018 年 05 月 29 日
+交流社区 中文社区  Golang 中国：国内较早的 Go 社区，汇聚各类信息与服务 Study Golang：国内 Go 社区先驱，同样汇聚各类信息与服务 Revel 交流论坛：Revel 框架的中文社区 GoCN Forum：Go 语言爱好者中文交流论坛 QQ 群：  Go Web 交流群：259316004 Golang 中国：211938256 Go 内部实现与标准库：192706294 Go 编程语言：102319854 Martini&amp;amp;Macaron 交流群：371440803 Golang 新手群：369793160   英文社区  Go Forum：Go 语言爱好者英文交流论坛 golang-nuts 邮件列表：Go 语言官方指定邮件列表讨论区 Go+ 社区：Go 语言官方指定 G+ 社区  知识图谱  Go Knowledge Graph：Go 知识图谱  网址导航  官方：  Go 中国站点: Go 语言中国官方站点(无需翻墙) Playground：Go 语言代码在线运行  国内镜像：  Go 指南国内镜像 Go 语言国内下载镜像 Go 官方网站国内镜像  Web 框架：  Macaron：模块化 Web 框架 Beego：重量级 Web 框架 Revel：较早成熟的重量级 Web 框架 Martini: 一个强大为了编写模块化 Web 应用而生的 Go 语言框架 Echo: 功能模块齐全, 上手容易, 文档示例齐全 Gin：轻量级 HTTP Web 框架  ORM 以及数据库驱动：  xorm：支持 MySQL、PostgreSQL、SQLite3 以及 MsSQL mgo：MongoDB 官方推荐驱动 gorm: 全功能 ORM (无限接近) 支持 MySQL、PostgreSQL、SQLite3 以及 MsSQL  辅助站点：  Go Walker：Go 语言在线 API 文档 gobuild.</description>
+    </item>
+    
+    <item>
+      <title>golang自定义主题</title>
+      <link>https://tgkoco.github.io/2019/goland%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Sat, 07 Sep 2019 01:50:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/goland%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98/</guid>
+      <description>golang自定义主题  下载goland最新版。
+ 代码格式化 File-&amp;gt;Settings-&amp;gt;Tools-&amp;gt;File Watchers-&amp;gt;±&amp;gt;go fmt-&amp;gt;将Name一栏go fmt中间的空格去掉即可应用，在保存的时候就可代码格式化。
+护眼设置 File-&amp;gt;Settings-&amp;gt;Editor-&amp;gt;Color Scheme-&amp;gt;General-&amp;gt;Text-&amp;gt;Default text Foreground:R:0, G:0, B:0 Background:R:199, G:237, B:204
+主题 File-&amp;gt;Settings-&amp;gt;Editor-&amp;gt;Color Scheme-&amp;gt;General-&amp;gt;Scheme 选择喜欢的主题，比如Colorful Darcula
+字体 File-&amp;gt;Settings-&amp;gt;Editor-&amp;gt;Font
+更换主题插件 打开Goland，依次打开File&amp;gt;Settings&amp;gt;Plugins,搜索material这个主题，选择安装。</description>
+    </item>
+    
+    <item>
+      <title>位操作</title>
+      <link>https://tgkoco.github.io/2019/%E4%BD%8D%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Sat, 07 Sep 2019 01:50:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/%E4%BD%8D%E6%93%8D%E4%BD%9C/</guid>
+      <description>异或操作 百度解释 异或，英文为exclusive OR，缩写成xor 异或（xor）是一个数学运算符。它应用于逻辑运算。异或的数学符号为“⊕”，计算机符号为“xor”。其运算法则为： a⊕b = (¬a ∧ b) ∨ (a ∧¬b) 如果a、b两个值不相同，则异或结果为1。如果a、b两个值相同，异或结果为0。 异或也叫半加运算，其运算法则相当于不带进位的二进制加法：二进制下用1表示真，0表示假，则异或的运算法则为：0⊕0=0，1⊕0=1，0⊕1=1，1⊕1=0（同为0，异为1），这些法则与加法是相同的，只是不带进位，所以异或常被认作不进位加法。 异或略称为XOR、EOR、EX-OR 程序中有三种演算子：XOR、xor、⊕。 使用方法如下 z = x ⊕ y z = x xor y True ⊕ False = True False ⊕ True = True False⊕ False = False True ⊕ True = False 11111111^00000000=11111111
+00000000^00000000=00000000
+0101^0011=0110
+func swap(a ,b int){ //a和b记性交换 a=a^b; b=b^a; a=a^b; } 取反（NOT）相反 (0&amp;ndash;&amp;gt;1 1&amp;ndash;&amp;gt;0) 取反是一元运算符， 对一个二进制数的每一位执行逻辑反操作。使数字1成为0， 0成为1。例如： NOT 0111（十进制 7） = 1000 （十进制 8） 许多程序设计语言（包括C程序设计语言family）， 取反操作符用波浪线&amp;#34;~&amp;#34;表示。值得注意的是此操作符与&amp;#34;逻辑非（!</description>
+    </item>
+    
+    <item>
+      <title>base64编码</title>
+      <link>https://tgkoco.github.io/2019/base64/</link>
+      <pubDate>Sat, 07 Sep 2019 01:49:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/base64/</guid>
+      <description> 下面是一个简单的base64编码实例。 在这里，三个字符组成的输入值“Ow!”是base64编码的，得到的是4个字符的base64编码值“T3ch”。它是按以下方式工作的。
+(1) 字符串&amp;#34;Ow!&amp;#34;被拆分成3个8位的字节(0x4F、0x77、0x21)。 (2) 这3个字节构成了一个24为的二进制01001111 01110111 00100001。 (3) 这些为被划分为一些6位的序列010011、110111、011100、1000001. (4) 每个6位值都表示了从0～63之间的数字，对应base64字母表中的64个字符之一。得到的base64编码字符串是4个字符的字符串“T3ch”。然后就可以通过线路将这个字符串作为“安全的”8位字符传送出去，因为只用了一些移植性最好的字符(字母、数字等)。 base64填充  base64编码收到一个8位字节序列，将这个二进制序列流划分成6位的块。二进制序列有时不能正好平均地分为6位的块，在这种情况下，就在序列末尾填充零位，使二进制序列的长度成为24的倍数(6和8的最小公倍数)。
+ 对已填充的二进制进行编码时，任何完全填充(不包括原始数组中的位)的6位组都有特殊的第65个符号&amp;rdquo;=&amp;ldquo;表示。如果6位组是部分填充的，就将填充位设置为0.
+ 下面会写一个填充实例。初始输入字符串为&amp;rdquo;a:a&amp;rdquo;为3个字节(24位)。24是6和8的倍数，因此按照上面给出的例子计算。无需填充就会得到base64编码为&amp;rdquo;YTph&amp;rdquo;。
+ 然而，再增加一个字符，输入字符串变为&amp;rdquo;a:aa&amp;rdquo;,转换为二进制就会有32位长。而6和8的下一个公倍数为48.因此要添加16为的填充码。填充的前4位是与数据位混合在一起的。得到的6位组01xxxx，会被当作010000、十进制中的16，或者base64编码的Q来处理。剩下的两个6位组都是填充码，用=来表示。
+a:a &amp;ndash; 011000 010011 101001 100001 &amp;ndash; YTph
+a:aa &amp;ndash; 011000 010011 101001 100001 011000 01xxxx xxxxxx xxxxxx &amp;ndash; YTphYQ==
+a:aaa &amp;ndash; 011000 010011 101001 100001 011000 010110 0001xx xxxxxx &amp;ndash; YTphYWE=
+a:aaaa &amp;ndash; 011000 010011 101001 100001 011000 010110 000101 1000001 &amp;ndash; YTphYWFh
+  </description>
+    </item>
+    
+    <item>
+      <title>Go语言的http服务的热启动</title>
+      <link>https://tgkoco.github.io/2019/golanggo%E8%AF%AD%E8%A8%80%E7%9A%84http%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%83%AD%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Sat, 07 Sep 2019 01:48:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golanggo%E8%AF%AD%E8%A8%80%E7%9A%84http%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%83%AD%E5%90%AF%E5%8A%A8/</guid>
+      <description>Go语言的http服务的热启动 摘抄的代码，以便于学习。
+package main import ( &amp;#34;context&amp;#34; &amp;#34;errors&amp;#34; &amp;#34;flag&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;os/exec&amp;#34; &amp;#34;os/signal&amp;#34; &amp;#34;syscall&amp;#34; &amp;#34;time&amp;#34; ) var ( server *http.Server listener net.Listener graceful = flag.Bool(&amp;#34;graceful&amp;#34;, false, &amp;#34;listen on fd open 3 (internal use only)&amp;#34;) ) func sleep(w http.ResponseWriter, r *http.Request) { duration, err := time.ParseDuration(r.FormValue(&amp;#34;duration&amp;#34;)) if err != nil { http.Error(w, err.Error(), 400) return } time.Sleep(duration) w.Write([]byte(&amp;#34;Hello World&amp;#34;)) } func main() { flag.Parse() http.HandleFunc(&amp;#34;/sleep&amp;#34;, sleep) server = &amp;amp;http.</description>
+    </item>
+    
+    <item>
+      <title>Go切片的地址问题</title>
+      <link>https://tgkoco.github.io/2019/golang%E5%88%87%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/</link>
+      <pubDate>Sat, 07 Sep 2019 01:47:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golang%E5%88%87%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/</guid>
+      <description>切片的地址 a[:] 表示的是一个地址
+a[] 切片类型的也是一个地址
+for range 一个map,得到的k,v都表示一个地址不变的地址
+地址并没有变化,原因是key[:]表示的是同一个变量key的地址
+第二次添加的时候,添加的是同一个地址.
+解决方式,通过一个中间变量来接受key的值,来达到每次循环都是一个不定的地址.(防止同一个地址被修改)</description>
+    </item>
+    
+    <item>
+      <title>Go基本变量类型</title>
+      <link>https://tgkoco.github.io/2019/golang%E5%9F%BA%E7%A1%80%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Sat, 07 Sep 2019 01:46:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golang%E5%9F%BA%E7%A1%80%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</guid>
+      <description>&lt;h2 id=&#34;go语言的基本数据类型&#34;&gt;Go语言的基本数据类型&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go包ioutil</title>
+      <link>https://tgkoco.github.io/2019/golangioutil/</link>
+      <pubDate>Sat, 07 Sep 2019 01:15:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golangioutil/</guid>
+      <description> ioutil数据的操作包  ioutil.ReadDir(dirname string) ([]os.FileInfo, error) 根据传入的path，返回的是一个[]os.FileInfo的切片，ReadDir reads the directory named by dirname and returns  </description>
+    </item>
+    
+    <item>
+      <title>Mod的使用</title>
+      <link>https://tgkoco.github.io/2019/golangmod%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 06 Sep 2019 18:11:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golangmod%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;gomod环境的配置和简单使用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Go包http</title>
+      <link>https://tgkoco.github.io/2019/golanghttp/</link>
+      <pubDate>Fri, 06 Sep 2019 17:13:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golanghttp/</guid>
+      <description> http的工具包 接口  http.ResponseWriter接口  结构体  *http.Request 结构体  函数  http.HandleFunc(&amp;ldquo;/&amp;rdquo;, handfunc)，添加一个url对应的handle，其中hand是一个handler func(ResponseWriter, *Request))的func
+ http.Handle(&amp;ldquo;/&amp;rdquo;, hander),hander是一个接口，要求实现这个方法ServeHTTP(ResponseWriter, *Request)
+ http.ListenAndServe(&amp;rdquo;:8080&amp;rdquo;, nil)，启动一个http的服务，返回一个错误信息，端口，和Handler接口（作用未知）。
+  </description>
+    </item>
+    
+    <item>
+      <title>Go包fmt</title>
+      <link>https://tgkoco.github.io/2019/golangfmt/</link>
+      <pubDate>Fri, 06 Sep 2019 17:12:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golangfmt/</guid>
+      <description>fmt的工具包 通用替换符： %v 值的默认格式表示 %+v 类似%v，但输出结构体时会添加字段名 %#v 值的Go语法表示 %T 值的类型的Go语法表示 %% 百分号  布尔值： %t 单词true或false 整数： %b 表示为二进制 %c 该值对应的unicode码值 %d 表示为十进制 %o 表示为八进制 %q 该值对应的单引号括起来的go语法字符字面值，必要时会采用安全的转义表示 %x 表示为十六进制，使用a-f %X 表示为十六进制，使用A-F %U 表示为Unicode格式：U+1234，等价于&amp;#34;U+%04X&amp;#34;  浮点数与复数的两个组分： %b 无小数部分、二进制指数的科学计数法，如-123456p-78；参见strconv.FormatFloat %e 科学计数法，如-1234.456e+78 %E 科学计数法，如-1234.456E+78 %f 有小数部分但无指数部分，如123.456 %F 等价于%f %g 根据实际情况采用%e或%f格式（以获得更简洁、准确的输出） %G 根据实际情况采用%E或%F格式（以获得更简洁、准确的输出）  字符串和[]byte： %s 直接输出字符串或者[]byte %q 该值对应的双引号括起来的go语法字符串字面值，必要时会采用安全的转义表示 %x 每个字节用两字符十六进制数表示（使用a-f） %X 每个字节用两字符十六进制数表示（使用A-F）  指针： %p 表示为十六进制，并加上前导的0x
+没有%u。整数如果是无符号类型自然输出也是无符号的。类似的，也没有必要指定操作数的尺寸（int8，int64）。
+宽度通过一个紧跟在百分号后面的十进制数指定，如果未指定宽度，则表示值时除必需之外不作填充。精度通过（可选的）宽度后跟点号后跟的十进制数指定。如果未指定精度，会使用默认精度；如果点号后没有跟数字，表示精度为0。举例如下：
+%f: 默认宽度，默认精度 %9f 宽度9，默认精度 %.</description>
+    </item>
+    
+    <item>
+      <title>Go包filepath</title>
+      <link>https://tgkoco.github.io/2019/golangfilepath/</link>
+      <pubDate>Fri, 06 Sep 2019 17:11:21 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/golangfilepath/</guid>
+      <description> filepath的工具包  filepath.Join(dir, name&amp;hellip;) 链接多个路径信息string，返回的也是一个路径，可以传入多个参数。
+ filepath.Rel(path, name)，返回name相对与path的相对路径
+ filepath.Base(os.Arg[0])，返回的路径信息最后的文件的名称
+  </description>
+    </item>
+    
+    <item>
+      <title>[模板]模板样式信息</title>
+      <link>https://tgkoco.github.io/2019/%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Fri, 06 Sep 2019 10:47:38 +0800</pubDate>
+      
+      <guid>https://tgkoco.github.io/2019/%E6%A8%A1%E6%9D%BF%E6%A0%B7%E5%BC%8F%E4%BF%A1%E6%81%AF/</guid>
+      <description>&lt;p&gt;内容摘要信息&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

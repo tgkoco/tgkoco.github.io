@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://tgkoco.github.io/2019/sy%E7%95%8C%E9%9D%A2%E5%8C%96shell/" />
+  <link rel="next" href="https://tgkoco.github.io/2019/shcentos%E9%98%B2%E7%81%AB%E5%A2%99/" />
+  <link rel="canonical" href="https://tgkoco.github.io/2019/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98/" />
+  <link rel='shortcut icon' type='image/x-icon' href='//tgkoco.github.io/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="//tgkoco.github.io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="//tgkoco.github.io/favicon.ico">
+  <link rel="manifest" href="https://tgkoco.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://tgkoco.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Centos网卡问题 | TG zl
+       
+  </title>
+  <meta name="title" content="Centos网卡问题 | TG zl">
+    
+  
+  <link rel="stylesheet" href="https://tgkoco.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://tgkoco.github.io/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Centos网卡问题"/>
+<meta name="twitter:description" content="Centos7网卡"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Centos网卡问题",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/tgkoco.github.io\/2019\/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/tgkoco.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "疑惑, 博文, Linux, 网卡",
+  "wordcount":  125 ,
+  "url": "https:\/\/tgkoco.github.io\/2019\/shcentos%E7%BD%91%E5%8D%A1%E9%97%AE%E9%A2%98\/",
+  "datePublished": "2019-10-21T14:47:03\x2b08:00",
+  "dateModified": "2019-10-21T14:47:03\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "糖果🍬",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/tgkoco.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "TG🍬ZL"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://tgkoco.github.io/">TG zl</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://tgkoco.github.io/">TG zl</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://tgkoco.github.io/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/categories/" title="">categories</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/tags/" title="">tags</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/poetry-and-distance/" title="Poetry and Distance">Poetry and Distance</a>
+                
+                <a class="menu-item" href="https://tgkoco.github.io/about/" title="About">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Centos网卡问题</h1>
+        <div class="post-meta">
+            Written by <a href="https://tgkoco.github.io/" rel="author">TG🍬ZL</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-10-21 >21 October 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tgkoco.github.io/categories/%E7%88%B1%E7%94%9F%E6%B4%BB/"> 爱生活 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                1 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="centos7网卡">Centos7网卡</h1>
+
+<hr />
+
+<h2 id="更改网卡名称">更改网卡名称</h2>
+<div class="highlight"><pre class="chroma">1.改名
+mv /etc/sysconfig/network-scripts/ifcfg-eno1 /etc/sysconfig/network-scripts/ifcfg-eth0
+2.修改grup
+vi /etc/default/grub
+添加 &#34;net.ifnames=0 biosdevname=0&#34;
+即为： GRUB_CMDLINE_LINUX=&#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet&#34;
+-----------&gt;
+GRUB_CMDLINE_LINUX=&#34;crashkernel=auto rd.lvm.lv=centos/root net.ifnames=0 biosdevname=0 rd.lvm.lv=centos/swap rhgb quiet&#34;
+3.更新grub配置和内核参数
+grub2-mkconfig -o /boot/grub2/grub.cfg
+4.重启
+reboot</pre></div>
+<h2 id="配置静态地址">配置静态地址</h2>
+<div class="highlight"><pre class="chroma">1.更改配置信息
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+更改如下内容：
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.5.12
+NETMASK=255.255.255.0
+GATEWAY=192.168.5.1
+2.修改dns
+vi /etc/resolv.conf
+添加如下（使用的阿里的DNS服务）：
+nameserver 223.5.5.5
+nameserver 223.6.6.6</pre></div>
+<h2 id="配置bond模式">配置bond模式</h2>
+
+<p><strong>以网卡 eth0、 eth1 绑定命名为 bond1 为例， bond 配置步骤：</strong></p>
+<div class="highlight"><pre class="chroma">1.修改网卡 eth0 vi /etc/sysconfig/network-scripts/ifcfg-eth0
+TYPE=Ethernet
+BOOTPROTO=none
+DEVICE=eth0
+ONBOOT=yes
+USERCTL=no
+MASTER=bond1
+SLAVE=yes
+2.同上步骤修改 eth1/etc2……
+3.新建 bond1 配置 vi /etc/sysconfig/network-scripts/ifcfg-bond1
+TYPE=Bond
+BOOTPROTO=none
+DEVICE=bond1
+ONBOOT=yes
+IPADDR=192.168.8.8
+NETMASK=255.255.255.0
+GATEWAY=192.168.8.1
+USERCTL=no
+BONDING_MASTER=yes
+BONDING_OPTS=&#34;mode=1 miimon=100&#34;
+4.创建 bonding.conf 文件 vi /etc/modprobe.d/bonding.conf（可跳过）
+alias bond1 bonding
+options bond1 mode=1 miimon=100
+5.执行命令 modprobe bonding 更新加载 bonding 模块
+执行命令 lsmod | grep bonding 如出现如下结果，说明加载成功
+6.重启网络服务
+systemctl stop NetworkManager
+systemctl disable NetworkManager
+systemctl restart network
+7.查看绑定模式及网卡状态信息 
+cat /proc/net/bonding/bond1</pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>TG🍬ZL </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>125</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftgkoco.github.io%2f2019%2fshcentos%25E7%25BD%2591%25E5%258D%25A1%25E9%2597%25AE%25E9%25A2%2598%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fshcentos%25E7%25BD%2591%25E5%258D%25A1%25E9%2597%25AE%25E9%25A2%2598%2f&amp;title=Centos%e7%bd%91%e5%8d%a1%e9%97%ae%e9%a2%98" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+        <a href="//service.weibo.com/share/share.php?url=https%3a%2f%2ftgkoco.github.io%2f2019%2fshcentos%25E7%25BD%2591%25E5%258D%25A1%25E9%2597%25AE%25E9%25A2%2598%2f&amp;appkey=&amp;title=Centos%e7%bd%91%e5%8d%a1%e9%97%ae%e9%a2%98" target="_blank" title="Share on Douban ">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E7%96%91%E6%83%91/">
+                    #疑惑</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E5%8D%9A%E6%96%87/">
+                    #博文</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/linux/">
+                    #Linux</a></span>
+            
+            <span class="tag"><a href="https://tgkoco.github.io/tags/%E7%BD%91%E5%8D%A1/">
+                    #网卡</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://tgkoco.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tgkoco.github.io/2019/sy%E7%95%8C%E9%9D%A2%E5%8C%96shell/" class="prev" rel="prev" title="界面化shell"><i class="iconfont icon-dajiantou"></i>&nbsp;界面化shell</a>
+         
+        
+        <a href="https://tgkoco.github.io/2019/shcentos%E9%98%B2%E7%81%AB%E5%A2%99/" class="next" rel="next" title="Centos常见的坑">Centos常见的坑&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tgkoco';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+ 
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      
+<style>
+    body {
+        cursor: url(https://tgkoco.github.io/cursor.ico), default;
+    }
+</style>
+
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgkoco.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tgkoco.github.io/">TG🍬ZL</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://tgkoco.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>
